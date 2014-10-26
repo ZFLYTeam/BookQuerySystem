@@ -33,7 +33,7 @@
                             DataValueField="bookTypeId">
                         </asp:DropDownList>
 					    <asp:SqlDataSource ID="sqsBookTypeName" runat="server" 
-                            ConnectionString="Data Source=IHUEIJ-PC\SQLEXPRESS;Initial Catalog=db_BQS;Integrated Security=True" 
+                            ConnectionString="Data Source=localhost;Initial Catalog=db_BQS;Integrated Security=True" 
                             ProviderName="System.Data.SqlClient" 
                             SelectCommand="SELECT [bookTypeName], [bookTypeId] FROM [t_bookType]">
                         </asp:SqlDataSource>

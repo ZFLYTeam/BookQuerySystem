@@ -58,7 +58,7 @@
                     <asp:DropDownList ID="ddlBookType" class="selectpicker" data-style="btn-info"
                         runat="server" DataSourceID="SqlGetBookType" DataTextField="bookTypeName" DataValueField="bookTypeId">
                     </asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlGetBookType" runat="server" ConnectionString="Data Source=IHUEIJ-PC\SQLEXPRESS;Initial Catalog=db_BQS;Integrated Security=True"
+                    <asp:SqlDataSource ID="SqlGetBookType" runat="server" ConnectionString="Data Source=localhost;Initial Catalog=db_BQS;Integrated Security=True"
                         ProviderName="System.Data.SqlClient" SelectCommand="SELECT [bookTypeName], [bookTypeId] FROM [t_bookType]">
                     </asp:SqlDataSource>
                 </td>

@@ -225,12 +225,14 @@
     <Compile Include="App_Code\dao\DatadicDao.cs" />
     <Compile Include="datadicList.aspx.cs">
       <DependentUpon>datadicList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="datadicList.aspx.designer.cs">
       <DependentUpon>datadicList.aspx</DependentUpon>
     </Compile>
     <Compile Include="datadicSave.aspx.cs">
       <DependentUpon>datadicSave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="datadicSave.aspx.designer.cs">
       <DependentUpon>datadicSave.aspx</DependentUpon>
