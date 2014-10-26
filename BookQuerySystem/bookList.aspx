@@ -33,7 +33,7 @@
     </cc1:Alert>
     <div>
         <table align="center">
-            <tr>
+            <tr >
                 <td width="10%" align="right">
                 书名：
                 </td>
@@ -141,9 +141,28 @@
                         <%#Eval("bookTypeName")%>
                     </td>
                     <td>
-                        <button  href="#alert" data-toggle="modal" class="btn btn-mini  btn-danger">删除</button>
-                        <asp:Button ID="btnBookDelete" class="btn btn-mini  btn-danger" CommandArgument='<%#Eval("bookId")%>'
-                            CommandName="delete" runat="server" Text="删除"  ClientIDMode="Static" />
+                        <button href="#alert" data-toggle="modal" class="btn btn-mini  btn-danger">
+                            删除</button>
+                        <div id="alert" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    ×</button>
+                                <h3 id="myModalLabel">
+                                    提示
+                                </h3>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    你确定要删除该条书籍信息？</p>
+                            </div>
+                            <div class="modal-footer">
+                            <asp:Button ID="btnBookDelete" class="btn btn-success" CommandArgument='<%#Eval("bookId")%>'
+                            CommandName="delete" runat="server" Text="确认" ClientIDMode="Static" />
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">
+                                    取消</button>
+                            </div>
+                        </div>
                         <asp:Button ID="btnBookModify" class="btn btn-mini  btn-info" CommandArgument='<%#Eval("bookId")%>'
                             CommandName="modify" runat="server" Text="修改" />
                         <asp:Button ID="btnBookDetails" class="btn btn-mini  btn-info" CommandArgument='<%#Eval("bookId")%>'
@@ -166,24 +185,7 @@
             </webdiyer:AspNetPager>
         </div>
     </div>
-    <div id="alert" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                ×</button>
-            <h3 id="myModalLabel">
-                提示
-            </h3>
-        </div>
-        <div class="modal-body">
-            <p>
-                你确定要删除该条书籍信息？</p>
-        </div>
-        <div class="modal-footer">
-        <button class="btn btn-success"  onclick="isDelete();">确定</button>
-            <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-        </div>
-    </div>
+    
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
     <script type="text/javascript">
