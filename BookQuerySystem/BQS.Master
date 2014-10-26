@@ -71,8 +71,8 @@
                                     <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">系统管理<strong
                                         class="caret"></strong></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">数据字典维护</a></li>
-                                            <li><a href="#">数据字典类别维护</a></li>
+                                            <li><a href="datadicList.aspx">数据字典维护</a></li>
+                                            <li><a href="datadicTypeList.aspx">数据字典类别维护</a></li>
                                             <li><a href="#">修改密码</a></li>
                                             <li class="divider"></li>
                                             <li><a href="javascript:logOut()">退出系统</a></li>

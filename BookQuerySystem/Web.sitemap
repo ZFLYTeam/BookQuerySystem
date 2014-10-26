@@ -10,5 +10,13 @@
             <siteMapNode url="bookTypeSave.aspx" title="书籍类别添加"  description="书籍类别添加" />
             <siteMapNode url="bookTypeList.aspx" title="书籍类别维护"  description="书籍类别维护" />
         </siteMapNode>
+        <siteMapNode  title="数据字典"  description="数据字典管理">
+            <siteMapNode url="datadicSave.aspx" title="数据字典维护"  description="数据字典维护" />
+            <siteMapNode url="datadicList.aspx" title="数据字典维护"  description="数据字典维护" />
+        </siteMapNode>
+        <siteMapNode  title="数据字典类别"  description="数据字典类型管理">
+            <siteMapNode url="datadicTypeSave.aspx" title="数据字典类型维护"  description="数据字典类型维护" />
+            <siteMapNode url="datadicTypeList.aspx" title="数据字典类型维护"  description="数据字典类型维护" />
+        </siteMapNode>
     </siteMapNode>
 </siteMap>
