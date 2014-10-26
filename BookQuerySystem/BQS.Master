@@ -1,0 +1,151 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BQS.Master.cs" Inherits="BookQuerySystem.BQS" %>
+
+<%@ Register Assembly="Twitter.Web.Controls" Namespace="Twitter.Web.Controls" TagPrefix="cc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>ZFLY图书查询系统</title>
+    <link  href="libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link  href="libs/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link  href="libs/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="images/favicon.png" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>
+                图书查询系统</h1>
+        </div>
+        <form id="form1" runat="server">
+        <div class="row">
+            <div align="right">
+                <asp:ScriptManager ID="scmTime" runat="server">
+                </asp:ScriptManager>
+                <asp:UpdatePanel ID="uplTime" runat="server">
+                    <ContentTemplate>
+                        <asp:Label ID="lblTime" runat="server" Text=""></asp:Label>
+                        <asp:Timer ID="Timer" runat="server" Interval="1000">
+                        </asp:Timer>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+            <div class="span12">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="container-fluid">
+                            <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar">
+                                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar">
+                                </span></a><a href="Default.aspx" class="brand">ZFLY</a>
+                            <div class="nav-collapse collapse navbar-responsive-collapse">
+                                <ul class="nav">
+                                    <li><a href="Default.aspx">主页</a></li>
+                                    <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">书籍信息管理<strong
+                                        class="caret"></strong></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="bookSave.aspx">书籍信息添加</a> </li>
+                                            <li><a href="BookList.aspx">书籍信息维护</a> </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">书籍类别管理<strong
+                                        class="caret"></strong></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="bookTypeSave.aspx">书籍类别添加</a> </li>
+                                            <li><a href="BookTypeList.aspx">书籍类别维护</a> </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">新闻信息管理<strong
+                                        class="caret"></strong></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">新闻信息添加</a> </li>
+                                            <li><a href="#">新闻信息维护</a> </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <ul class="nav pull-right">
+                                    <li id="login" runat="server"><a href="#userLogin"  data-toggle="modal" >管理员登录</a></li>
+                                    <li class="divider-vertical"></li>
+                                    <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">系统管理<strong
+                                        class="caret"></strong></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">数据字典维护</a></li>
+                                            <li><a href="#">数据字典类别维护</a></li>
+                                            <li><a href="#">修改密码</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="javascript:logOut()">退出系统</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="userLogin" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            ×</button>
+                        <h3 id="myModalLabel">
+                            管理员登录
+                        </h3>
+                    </div>
+                    <div class="modal-body">
+                        <table align="center">
+                            <tr>
+                                <td width="30%">
+                                    <label>用户名:</label>
+                                </td>
+                                <td width="70%">
+                                    <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                            <td width="30%">
+                                    <label>密码:</label>
+                                </td>
+                                <td width="70%">
+                                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">
+                            关闭</button>
+                        <button class="btn btn-primary">
+                            保存设置</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <asp:SiteMapPath ID="SiteMapPath1" runat="server" CssClass="breadcrumb" PathSeparator="&nbsp;/&nbsp;&nbsp;">
+        </asp:SiteMapPath>
+        <div style="padding-top: 25px">
+            <asp:ContentPlaceHolder ID="mainPage" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        </form>
+        <asp:ContentPlaceHolder ID="under_Form" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span12">
+                <div align="center">
+                    Copyright © 2014-2015 ZFLY版权所有
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="libs/bootstrap/js/jquery.min.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/js/jqBootstrapValidation.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="libs/bootstrap-select/js/bootstrap-select.js"></script>
+    <asp:ContentPlaceHolder ID="footer" runat="server"> </asp:ContentPlaceHolder>
+</body>
+</html>

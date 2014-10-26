@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="Default.aspx" title="主页"  description="主页">
+        <siteMapNode  title="书籍信息管理"  description="书籍信息管理">
+            <siteMapNode url="bookSave.aspx" title="书籍信息添加"  description="书籍信息添加" />
+            <siteMapNode url="bookList.aspx" title="书籍信息维护"  description="书籍信息维护" />
+            <siteMapNode url="bookDetails.aspx" title="书籍详细信息"  description="书籍详细信息" />
+        </siteMapNode>
+        <siteMapNode  title="书籍类别管理"  description="书籍类别管理">
+            <siteMapNode url="bookTypeSave.aspx" title="书籍类别添加"  description="书籍类别添加" />
+            <siteMapNode url="bookTypeList.aspx" title="书籍类别维护"  description="书籍类别维护" />
+        </siteMapNode>
+    </siteMapNode>
+</siteMap>

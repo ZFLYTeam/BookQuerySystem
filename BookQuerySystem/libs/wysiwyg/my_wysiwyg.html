@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>wysiwyg</title>
+	<link href="external/google-code-prettify/prettify.css" rel="stylesheet">
+	<link href="libs/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="libs/bootstrap.min.css" rel="stylesheet">
+	<link href="index.css" rel="stylesheet">
+</head>
+  <body>
+
+<div class="container">
+	<h1>新闻发布<br/> <small>tiny wysiwyg rich text editor for Bootstrap</small></h1>
+	<hr/>
+	<!--
+	Please read this before copying the toolbar:
+
+	* One of the best things about this widget is that it does not impose any styling on you, and that it allows you 
+	* to create a custom toolbar with the options and functions that are good for your particular use. This toolbar
+	* is just an example - don't just copy it and force yourself to use the demo styling. Create your own. Read 
+	* this page to understand how to customise it:
+    * https://github.com/mindmup/bootstrap-wysiwyg/blob/master/README.md#customising-
+	-->
+	<div id="alerts"></div>
+    <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+      <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" title="字体"><i class="fa fa-font"></i><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          </ul>
+        </div>
+      <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" title="字体大小"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          <li><a data-edit="fontSize 5"><font size="5">大</font></a></li>
+          <li><a data-edit="fontSize 3"><font size="3">正常</font></a></li>
+          <li><a data-edit="fontSize 1"><font size="1">小</font></a></li>
+          </ul>
+      </div>
+      <div class="btn-group">
+        <a class="btn" data-edit="bold" title="粗体 (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
+        <a class="btn" data-edit="italic" title="斜体 (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+        <a class="btn" data-edit="strikethrough" title="删除线"><i class="fa fa-strikethrough"></i></a>
+        <a class="btn" data-edit="underline" title="下划线 (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
+      </div>
+      <div class="btn-group">
+        <a class="btn" data-edit="insertunorderedlist" title="项目符号列表"><i class="fa fa-list-ul"></i></a>
+        <a class="btn" data-edit="insertorderedlist" title="数字列表"><i class="fa fa-list-ol"></i></a>
+        <a class="btn" data-edit="outdent" title="左缩紧 (Shift+Tab)"><i class="fa fa-outdent"></i></a>
+        <a class="btn" data-edit="indent" title="右缩进 (Tab)"><i class="fa fa-indent"></i></a>
+      </div>
+      <div class="btn-group">
+        <a class="btn" data-edit="justifyleft" title="居左 (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
+        <a class="btn" data-edit="justifycenter" title="居中 (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
+        <a class="btn" data-edit="justifyright" title="居右 (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
+        <a class="btn" data-edit="justifyfull" title="适应 (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
+      </div>
+      <div class="btn-group">
+		  <a class="btn dropdown-toggle" data-toggle="dropdown" title="添加超链接"><i class="fa fa-link"></i></a>
+		    <div class="dropdown-menu input-append">
+			    <input class="span2" placeholder="URL" type="text" data-edit="createLink"/>
+			    <button class="btn" type="button">Add</button>
+        </div>
+        <a class="btn" data-edit="unlink" title="删除超链接"><i class="fa fa-cut"></i></a>
+
+      </div>
+      
+      <div class="btn-group">
+        <a class="btn" title="插入图片 (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
+        <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+      </div>
+      <div class="btn-group">
+        <a class="btn" data-edit="undo" title="撤销 (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
+        <a class="btn" data-edit="redo" title="重做 (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
+      </div>
+    </div>
+
+    <div id="editor">
+      添加新闻内容&hellip;
+    </div>
+</div>
+<script src="libs/jquery.min.js"></script>
+<script src="external/jquery.hotkeys.js"></script>
+<script src="libs/bootstrap.min.js"></script>
+<script src="external/google-code-prettify/prettify.js"></script>
+<script src="bootstrap-wysiwyg.js"></script>
+<script>
+    $(function () {
+        function initToolbarBootstrapBindings() {
+            var fonts = ['微软雅黑', '黑体', '楷体', '宋体', 'Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
+            'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
+            'Times New Roman', 'Verdana'],
+            fontTarget = $('[title=字体]').siblings('.dropdown-menu');
+            $.each(fonts, function (idx, fontName) {
+                fontTarget.append($('<li><a data-edit="fontName ' + fontName + '" style="font-family:\'' + fontName + '\'">' + fontName + '</a></li>'));
+            });
+            $('a[title]').tooltip({ container: 'body' });
+            $('.dropdown-menu input').click(function () { return false; })
+		    .change(function () { $(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle'); })
+        .keydown('esc', function () { this.value = ''; $(this).change(); });
+
+            $('[data-role=magic-overlay]').each(function () {
+                var overlay = $(this), target = $(overlay.data('target'));
+                overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+            });
+            if ("onwebkitspeechchange" in document.createElement("input")) {
+                var editorOffset = $('#editor').offset();
+                $('#voiceBtn').css('position', 'absolute').offset({ top: editorOffset.top, left: editorOffset.left + $('#editor').innerWidth() - 35 });
+            } else {
+                $('#voiceBtn').hide();
+            }
+        };
+        function showErrorAlert(reason, detail) {
+            var msg = '';
+            if (reason === 'unsupported-file-type') { msg = "Unsupported format " + detail; }
+            else {
+                console.log("error uploading file", reason, detail);
+            }
+            $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>' +
+		 '<strong>File upload error</strong> ' + msg + ' </div>').prependTo('#alerts');
+        };
+        initToolbarBootstrapBindings();
+        $('#editor').wysiwyg({ fileUploadError: showErrorAlert });
+        window.prettyPrint && prettyPrint();
+    });
+</script>
+</body>
+</html>
