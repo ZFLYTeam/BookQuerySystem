@@ -69,6 +69,8 @@
     <Content Include="bookTypeList.aspx" />
     <Content Include="bookTypeSave.aspx" />
     <Content Include="Bootstrap.aspx" />
+    <Content Include="datadicList.aspx" />
+    <Content Include="datadicSave.aspx" />
     <Content Include="datadicTypeList.aspx" />
     <Content Include="datadicTypeSave.aspx" />
     <Content Include="Default.aspx" />
@@ -219,6 +221,20 @@
     </Compile>
     <Compile Include="App_Code\model\DatadicType.cs" />
     <Compile Include="App_Code\dao\DatadicTypeDao.cs" />
+    <Compile Include="App_Code\model\Datadic.cs" />
+    <Compile Include="App_Code\dao\DatadicDao.cs" />
+    <Compile Include="datadicList.aspx.cs">
+      <DependentUpon>datadicList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="datadicList.aspx.designer.cs">
+      <DependentUpon>datadicList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="datadicSave.aspx.cs">
+      <DependentUpon>datadicSave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="datadicSave.aspx.designer.cs">
+      <DependentUpon>datadicSave.aspx</DependentUpon>
+    </Compile>
     <Compile Include="datadicTypeList.aspx.cs">
       <DependentUpon>datadicTypeList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
