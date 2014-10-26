@@ -6,16 +6,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainPage" runat="server">
-    <h2 class="page-header">
-        &nbsp;<cc1:Alert ID="Alertfail" runat="server" Visible="False" AlertType="Warning">
+    <cc1:Alert ID="Alertfail" runat="server" Visible="False" AlertType="Warning">
         <h4>
             提示!
         </h4>
         书籍类别保存失败
     </cc1:Alert>
-        图书类别维护</h2>
         <div class="row row-fluid">
-		<div class="span8">
+        <div class="span3"></div>
+		<div class="span6">
 			<div class="form-horizontal">
 				<div class="control-group">
 					 <label class="control-label" for="tb_bookTypeName">类别名称</label>
@@ -31,8 +30,10 @@
 				</div>
                 <div class="control-group">
 					<div class="controls ">
-                    <asp:Button ID="btnBookTypeSave" class="btn btn-info span12" runat="server" 
+                    <asp:Button ID="btnBookTypeSave" class="btn btn-info span6" runat="server" 
                             Text="保存" onclick="btnBookTypeSave_Click" />
+                        <asp:Button ID="btnReturn" class="btn btn-info span6" runat="server" Text="返回" 
+                            onclick="btnReturn_Click" />
 					</div>
 				</div>
 			</div>

@@ -36,7 +36,7 @@
                             <%#Eval("ddValue")%>
                         </td>
                         <td>
-                            <%#Eval("ddDesc")%>元
+                            <%#Eval("ddDesc")%>
                         </td>
                         <td>
                             <asp:Button ID="datadicDelete" class="btn btn-mini btn-danger" CommandArgument='<%#Eval("ddId")%>' CommandName="delete" runat="server" Text="删除" />

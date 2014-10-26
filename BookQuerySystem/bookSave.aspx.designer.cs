@@ -31,6 +31,15 @@ namespace BookQuerySystem {
         protected global::Twitter.Web.Controls.Alert AlertExist;
         
         /// <summary>
+        /// AlertIsEmpty 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Twitter.Web.Controls.Alert AlertIsEmpty;
+        
+        /// <summary>
         /// tb_bookName 控件。
         /// </summary>
         /// <remarks>
@@ -76,22 +85,22 @@ namespace BookQuerySystem {
         protected global::System.Web.UI.WebControls.TextBox tb_bookPrice;
         
         /// <summary>
-        /// tb_bookPublish 控件。
+        /// ddlPublish 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_bookPublish;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPublish;
         
         /// <summary>
-        /// tb_bookDesc 控件。
+        /// SqlDataSourceforView_publish 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_bookDesc;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceforView_publish;
         
         /// <summary>
         /// fldCover 控件。
@@ -110,6 +119,24 @@ namespace BookQuerySystem {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tb_bookCover;
+        
+        /// <summary>
+        /// tb_bookDesc 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_bookDesc;
+        
+        /// <summary>
+        /// btnReturn 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnReturn;
         
         /// <summary>
         /// bt_bookSave 控件。

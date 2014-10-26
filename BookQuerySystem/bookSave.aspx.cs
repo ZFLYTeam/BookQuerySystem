@@ -27,6 +27,10 @@ namespace BookQuerySystem
             {
                 AlertExist.Visible = true;
             }
+            else if (Session["flag"].ToString() == "isEmpty")
+            {
+                AlertIsEmpty.Visible = true;
+            }
             Session.Remove("flag");
             int bookId = Convert.ToInt32(Context.Request["bookId"]);
             //根据bookList页面传过来的bookId从数据库中获取book对象
@@ -38,7 +42,6 @@ namespace BookQuerySystem
                     tb_bookName.Text = "";
                     tb_bookAuthor.Text = "";
                     tb_bookPrice.Text = "";
-                    tb_bookPublish.Text = "";
                     tb_bookDesc.Text = "";
                     tb_bookCover.Text = "";
                 }
@@ -48,7 +51,7 @@ namespace BookQuerySystem
                     ddlBookTypeSelect.SelectedValue = book.BookTypeId.ToString();
                     tb_bookAuthor.Text = book.BookAuthor;
                     tb_bookPrice.Text = book.BookPrice;
-                    tb_bookPublish.Text = book.BookPublish;
+                    ddlPublish.SelectedValue = book.BookPublish.ToString();
                     tb_bookDesc.Text = book.BookDesc;
                     tb_bookCover.Text = book.BookCover;
                 }
@@ -57,14 +60,18 @@ namespace BookQuerySystem
 
         protected void bt_bookSave_Click(object sender, EventArgs e)
         {
-            if (Context.Request["bookId"] != null)
+            if (tb_bookName.Text == "") {
+                Session["flag"] = "isEmpty";
+                Response.Redirect("bookSave.aspx");
+            }
+             else if (Context.Request["bookId"] != null)
             {
                 book.BookId = Convert.ToInt32(Context.Request["bookId"]);
                 book.BookTypeId = Convert.ToInt32(ddlBookTypeSelect.SelectedValue);
                 book.BookName= tb_bookName.Text;
                 book.BookAuthor = tb_bookAuthor.Text;
                 book.BookPrice = tb_bookPrice.Text;
-                book.BookPublish = tb_bookPublish.Text;
+                book.BookPublish = ddlPublish.SelectedItem.Text;
                 book.BookDesc = tb_bookDesc.Text;
                 //判断修改的时候是否修改图片
                 if (upLoadImage() != "")
@@ -96,7 +103,7 @@ namespace BookQuerySystem
                 book.BookName = tb_bookName.Text;
                 book.BookAuthor = tb_bookAuthor.Text;
                 book.BookPrice = tb_bookPrice.Text;
-                book.BookPublish = tb_bookPublish.Text;
+                book.BookPublish = ddlPublish.SelectedItem.Text;
                 book.BookDesc = tb_bookDesc.Text;
                 //如果存在的话，提示书籍已存在
                 if (bookDao.existBook(book))
@@ -160,6 +167,11 @@ namespace BookQuerySystem
             {
                 throw ex;
             }
+        }
+
+        protected void btnReturn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("bookList.aspx");
         }
     }
 }

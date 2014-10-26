@@ -34,7 +34,6 @@
     <div>
         <table align="center">
             <tr>
-                <td width="10%"></td>
                 <td width="10%" align="right">
                 书名：
                 </td>
@@ -47,10 +46,8 @@
                 <td width="30%">
                     <asp:TextBox ID="txtAuthor" runat="server"></asp:TextBox>
                 </td>
-                <td width="10%"></td>
             </tr>
             <tr>
-            <td width="10%"></td>
                 <td width="10%" align="right">
                 书籍类别：
                 </td>
@@ -66,23 +63,27 @@
                 出版社：
                 </td>
                 <td width="30%">
-                    <asp:TextBox ID="txtBookPublish" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="ddlPublish" class="selectpicker" data-style="btn-info" runat="server" DataSourceID="SqlGetPublish" 
+                        DataTextField="ddValue" DataValueField="ddValue">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlGetPublish" runat="server" 
+                        ConnectionString="Data Source=localhost;Initial Catalog=db_BQS;Integrated Security=True" 
+                        ProviderName="System.Data.SqlClient" 
+                        SelectCommand="SELECT [ddValue] FROM [view_publish]"></asp:SqlDataSource>
                 </td>
-                <td width="10%"></td>
             </tr>
             <tr>
-            <td width="10%"></td>
                 <td width="10%" align="right">
                 </td>
                 <td width="30%">
-                       <asp:Button ID="btnSearch" style="width:100%" class="btn btn-success" runat="server" Text="查询" OnClick="btnSearch_Click" />
+                       <asp:Button ID="btnSearch" style="width:80%" class="btn btn-success" runat="server" Text="查询" OnClick="btnSearch_Click" />
                 </td>
                 <td width="10%" align="right">
                 </td>
                 <td width="30%">
-                    <asp:Button ID="btnReset" style="width:100%" class="btn btn-danger" runat="server" Text="重置" />
+                    <asp:Button ID="btnReset" style="width:80%" class=" btn btn-warning"
+                        runat="server" Text="重置" onclick="btnReset_Click" />
                 </td>
-                <td width="10%"></td>
             </tr>
         </table>
     </div>

@@ -16,90 +16,114 @@
         </h4>
         书籍已经存在,请不要重复添加
     </cc1:Alert>
-    <div class="row-fluid">
-		<div class="span8">
-			<div class="form-horizontal">
-				<div class="control-group">
-					 <label class="control-label" for="tb_bookName">书名</label>
-					<div class="controls ">
-						<asp:TextBox ID="tb_bookName"  runat="server"></asp:TextBox>
-					</div>
-				</div>
-                <div class="control-group">
-					 <label class="control-label" for="tb_bookType">类别</label>
-					<div class="controls ">
-                        <asp:DropDownList ID="ddlBookTypeSelect" class="selectpicker" data-style="btn-primary" runat="server" 
-                            DataSourceID="sqsBookTypeName" DataTextField="bookTypeName" 
-                            DataValueField="bookTypeId">
-                        </asp:DropDownList>
-					    <asp:SqlDataSource ID="sqsBookTypeName" runat="server" 
-                            ConnectionString="Data Source=localhost;Initial Catalog=db_BQS;Integrated Security=True" 
-                            ProviderName="System.Data.SqlClient" 
-                            SelectCommand="SELECT [bookTypeName], [bookTypeId] FROM [t_bookType]">
-                        </asp:SqlDataSource>
-					</div>
-				</div>
-                <div class="control-group">
-					 <label class="control-label" for="tb_bookAuthor">作者</label>
-					<div class="controls ">
-						<asp:TextBox ID="tb_bookAuthor" class="span12"  runat="server"></asp:TextBox>
-					</div>
-				</div>
-                <div class="control-group">
-					 <label class="control-label" for="tb_bookPrice">价格</label>
-					<div class="controls ">
-						<asp:TextBox ID="tb_bookPrice" class="span12"  runat="server"></asp:TextBox>
-					</div>
-				</div>
-                <div class="control-group">
-					 <label class="control-label" for="tb_bookPublish">出版社</label>
-					<div class="controls ">
-						<asp:TextBox ID="tb_bookPublish" class="span12"  runat="server"></asp:TextBox>
-					</div>
-				</div>
-                 <div class="control-group">
-					 <label class="control-label" for="tb_bookDesc">描述</label>
-					<div class="controls ">
-						<asp:TextBox ID="tb_bookDesc" class="span12" TextMode="MultiLine" style="height:100px"  runat="server"></asp:TextBox>
-					</div>
-				</div>
-                <div class="control-group">
-					 <label class="control-label" for="tb_bookCover">封面</label>
-                    <div class="controls ">
-                        <asp:FileUpload ID="fldCover" runat="server" />
-                        <asp:TextBox ID="tb_bookCover" class="span12" runat="server" Visible="False"></asp:TextBox>
-                    </div>
-				</div>
-                <div class="control-group">
-					<div class="controls ">
-                    <a href="#alert" class="btn btn-info span12"  data-toggle="modal" >保存</a>
-					</div>
-				</div>
-			</div>
-
-            <div id="alert" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            ×</button>
-                        <h3 id="myModalLabel">
-                            提示
-                        </h3>
-                    </div>
-                    <div class="modal-body">
-                       <p>你确定要保存书籍信息？</p>
-                    </div>
-                    <div class="modal-footer">
-                    <asp:Button ID="bt_bookSave" class="btn btn-info" runat="server" Text="确定" 
-                            onclick="bt_bookSave_Click" />
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">
-                            取消</button>
-                    </div>
-                </div>
-		</div>
-		<div class="span3">
-		</div>
-	</div>
+      <cc1:Alert ID="AlertIsEmpty" runat="server" Visible="False" AlertType="Warning">
+        <h4>
+            提示!
+        </h4>
+        书名不能为空！！！请重新输入
+    </cc1:Alert>
+    <div>
+        <table align="center">
+            <tr>
+                <td width="10%" align="right">
+                    书名：
+                </td>
+                <td width="30%">
+                    <asp:TextBox ID="tb_bookName" runat="server"></asp:TextBox>
+                </td>
+                <td width="10%" align="right">
+                    类别：
+                </td>
+                <td width="30%">
+                    <asp:DropDownList ID="ddlBookTypeSelect" class="selectpicker" data-style="btn-primary"
+                        runat="server" DataSourceID="sqsBookTypeName" DataTextField="bookTypeName" DataValueField="bookTypeId">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="sqsBookTypeName" runat="server" ConnectionString="Data Source=localhost;Initial Catalog=db_BQS;Integrated Security=True"
+                        ProviderName="System.Data.SqlClient" SelectCommand="SELECT [bookTypeName], [bookTypeId] FROM [t_bookType]">
+                    </asp:SqlDataSource>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    作者：
+                </td>
+                <td>
+                    <asp:TextBox ID="tb_bookAuthor" runat="server"></asp:TextBox>
+                </td>
+                <td align="right">
+                    价格：
+                </td>
+                <td>
+                    <asp:TextBox ID="tb_bookPrice" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    出版社：
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlPublish" runat="server" class="selectpicker" data-style="btn-primary"
+                        DataSourceID="SqlDataSourceforView_publish" DataTextField="ddValue" 
+                        DataValueField="ddValue">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSourceforView_publish" runat="server" 
+                        ConnectionString="Data Source=localhost;Initial Catalog=db_BQS;Integrated Security=True" 
+                        ProviderName="System.Data.SqlClient" 
+                        SelectCommand="SELECT [ddValue], [ddId] FROM [view_publish]">
+                    </asp:SqlDataSource>
+                </td>
+                <td align="right">
+                    封面：
+                </td>
+                <td>
+                    <asp:FileUpload ID="fldCover" runat="server" />
+                    <asp:TextBox ID="tb_bookCover" runat="server" Visible="False"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    描述：
+                </td>
+                <td colspan="3">
+                    <asp:TextBox ID="tb_bookDesc" runat="server" Height="103px" TextMode="MultiLine"
+                        Width="83%"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                </td>
+                <td>
+                    <button class="btn btn-success" style="width: 66%" href="#alert" data-toggle="modal">
+                        保存</button>
+                </td>
+                <td align="right">
+                </td>
+                <td>
+                    <asp:Button ID="btnReturn" Width="66%" class="btn btn-info" runat="server" Text="返回"
+                        OnClick="btnReturn_Click" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="alert" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×</button>
+            <h3 id="myModalLabel">
+                提示
+            </h3>
+        </div>
+        <div class="modal-body">
+            <p>
+                你确定要保存书籍信息？</p>
+        </div>
+        <div class="modal-footer">
+            <asp:Button ID="bt_bookSave" class="btn btn-info" runat="server" Text="确定" OnClick="bt_bookSave_Click" />
+            <button class="btn" data-dismiss="modal" aria-hidden="true">
+                取消</button>
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="under_Form" runat="server">
 </asp:Content>

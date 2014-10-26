@@ -85,13 +85,22 @@ namespace BookQuerySystem {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlGetBookType;
         
         /// <summary>
-        /// txtBookPublish 控件。
+        /// ddlPublish 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBookPublish;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPublish;
+        
+        /// <summary>
+        /// SqlGetPublish 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlGetPublish;
         
         /// <summary>
         /// btnSearch 控件。

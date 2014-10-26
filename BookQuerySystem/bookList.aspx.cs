@@ -70,12 +70,15 @@ namespace BookQuerySystem
             catch { }
                 
             //判断是否选择了出版社
-            /*try
+            try
             {
-                sql += " and bookTypeName like '%" + ddlBookType.SelectedItem.Text + "%'";
-                sqlCount += " and bookTypeName like '%" + ddlBookType.SelectedItem.Text + "%'";
+                if (ddlPublish.SelectedItem.Text.ToString()!="未指定")
+                {
+                    sql += " and bookPublish like '%" + ddlBookType.SelectedItem.Text + "%'";
+                    sqlCount += " and bookPublish like '%" + ddlBookType.SelectedItem.Text + "%'";
+                }
             }
-            catch { }*/
+            catch { }
             if (!IsPostBack)
             {
                 BindGrid();
@@ -144,6 +147,13 @@ namespace BookQuerySystem
             AlertDeleteSuccess.Visible = false;
             AlertDeleteFalure.Visible = false;
             BindGrid();
+        }
+
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            txtAuthor.Text = "";
+            txtBookName.Text = "";
+            ddlBookType.ClearSelection();
         }
 
     }
