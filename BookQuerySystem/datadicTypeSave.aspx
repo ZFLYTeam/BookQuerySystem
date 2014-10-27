@@ -4,25 +4,42 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainPage" runat="server">
-    <h2 class="page-header">
-        数据字典类别修改</h2>
-    <div class="form-group">
-        <div class="span3">
-            
-        </div>
-        <asp:Label ID="lbl2" runat="server" Text="数据字典类别"></asp:Label>
-        <asp:TextBox ID="tb_ddTypeName" class="form" runat="server" 
-                ></asp:TextBox>
-        <div class="span3">
-            <asp:Label ID="lbl3" runat="server" Text="数据字典描述"></asp:Label>
-            <asp:TextBox ID="tb_ddTypeDesc" class="form" runat="server"></asp:TextBox>
-        </div>
-        <div class="span3">
-            <asp:Button ID="btn_modify" class="btn btn-primary" runat="server" Text="保存" OnClick="btn_modify_Click" />
-            <asp:Button ID="btn_return" runat="server" Height="36px" 
-                onclick="btn_return_Click" Text="返回" Width="65px" />
-        </div>
-    </div>
+<div class="row-fluid">
+		<div class="span12">
+			<div class="row-fluid">
+				<div class="span2">
+				</div>
+				<div class="span6">
+					<div class="form-horizontal">
+						<div class="control-group">
+							 <label class="control-label" for="tb_ddTypeName">数据字典类别</label>
+							<div class="controls">
+								<asp:TextBox ID="tb_ddTypeName" class="form" runat="server" 
+                required Width="300px" ></asp:TextBox>
+							</div>
+						</div>
+						<div class="control-group">
+							 <label class="control-label" for="tb_ddTypeDesc">数据字典描述</label>
+							<div class="controls">
+								<asp:TextBox ID="tb_ddTypeDesc" class="form" runat="server" required 
+                                    Width="300px"></asp:TextBox>
+							</div>
+						</div>
+                        <div class="control-group">
+                            <label class="control-label"></label>
+                            <div class="controls">
+                                <asp:Button ID="btn_modify" class="btn btn-primary span5"  runat="server" Text="保存"
+                                    OnClick="btn_modify_Click" />
+                                <input id="btnReturn" class="btn btn-success span5" onclick="javascript:window.location.href='datadicTypeList.aspx'" type="button" value="返回" />                           
+                            </div>
+                        </div>
+					</div>
+				</div>
+				<div class="span4">
+				</div>
+			</div>
+		</div>
+	</div>
     <div>
         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
     </div>

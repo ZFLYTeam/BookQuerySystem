@@ -57,15 +57,7 @@ namespace BookQuerySystem
                 datadicType.DdTypeDesc = tb_ddTypeDesc.Text;
                 b = datadicTypeDao.datadicTypeAdd(datadicType);
             }
-            //Response.Write("<Script>window.alert('保存成功');<'Script'>");
-            /*if (MessageBox.Show("你确定保存     吗？",MessageBoxButton.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
-                Response.Write*/
             MessageBox.Show("保存成功");
-        }
-
-        protected void btn_return_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("datadicTypeList.aspx");
         }
     }
 }

@@ -33,7 +33,28 @@
                             <%#Eval("ddTypeDesc")%>
                         </td>
                         <td>
-                            <asp:Button ID="datadicTypeDelete" class="btn btn-mini btn-danger" CommandArgument='<%#Eval("ddTypeId")%>' CommandName="delete" runat="server" Text="删除" />
+                                <button href="#alert" data-toggle="modal" class="btn btn-mini  btn-danger">
+                            删除</button>
+                        <div id="alert" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    ×</button>
+                                <h3 id="myModalLabel">
+                                    提示
+                                </h3>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    你确定要删除该条信息？</p>
+                            </div>
+                            <div class="modal-footer">
+                            <asp:Button ID="datadicTypeDelete" class="btn btn-success" CommandArgument='<%#Eval("ddTypeId")%>' CommandName="delete" runat="server" Text="确定" />
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">
+                                    取消</button>
+                            </div>
+                        </div>
+                            
                             <asp:Button ID="datadicTypeModify" class="btn btn-mini btn-info" CommandArgument='<%#Eval("ddTypeId")%>' CommandName="modify" runat="server" Text="修改" />
                         </td>
                     </tr>
