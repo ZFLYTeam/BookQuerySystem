@@ -259,8 +259,6 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\util\PageUtil.cs" />
-    <Compile Include="App_Code\model\News.cs" />
-    <Compile Include="App_Code\dao\NewsDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App_Code\util\DbUtil.cs" />
     <Compile Include="BQS.Master.cs">
