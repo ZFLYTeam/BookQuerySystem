@@ -168,10 +168,5 @@ namespace BookQuerySystem
                 throw ex;
             }
         }
-
-        protected void btnReturn_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("bookList.aspx");
-        }
     }
 }

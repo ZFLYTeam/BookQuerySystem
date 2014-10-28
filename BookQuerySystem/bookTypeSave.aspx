@@ -19,7 +19,7 @@
 				<div class="control-group">
 					 <label class="control-label" for="tb_bookTypeName">类别名称</label>
 					<div class="controls ">
-						<asp:TextBox ID="tb_bookTypeName" class="span12" runat="server"></asp:TextBox>
+						<asp:TextBox ID="tb_bookTypeName" class="span12" required runat="server"></asp:TextBox>
 					</div>
 				</div>
                 <div class="control-group">
@@ -32,8 +32,7 @@
 					<div class="controls ">
                     <asp:Button ID="btnBookTypeSave" class="btn btn-info span6" runat="server" 
                             Text="保存" onclick="btnBookTypeSave_Click" />
-                        <asp:Button ID="btnReturn" class="btn btn-info span6" runat="server" Text="返回" 
-                            onclick="btnReturn_Click" />
+                    <input id="btnReturn" class="btn btn-info span6" onclick="javascript:window.location.href='bookTypeList.aspx'" type="button" value="返回" />  
 					</div>
 				</div>
 			</div>

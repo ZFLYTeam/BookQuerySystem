@@ -29,7 +29,7 @@
                     书名：
                 </td>
                 <td width="30%">
-                    <asp:TextBox ID="tb_bookName" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tb_bookName" required runat="server"></asp:TextBox>
                 </td>
                 <td width="10%" align="right">
                     类别：
@@ -93,44 +93,18 @@
                 <td align="right">
                 </td>
                 <td>
-                    <button class="btn btn-success" style="width: 66%" href="#alert" data-toggle="modal">
-                        保存</button>
+                    <asp:Button ID="bt_bookSave" class="btn btn-success" style="width: 66%" runat="server" Text="确定" OnClick="bt_bookSave_Click" />
                 </td>
                 <td align="right">
                 </td>
                 <td>
-                    <asp:Button ID="btnReturn" Width="66%" class="btn btn-info" runat="server" Text="返回"
-                        OnClick="btnReturn_Click" />
+                     <input id="btnReturn" class="btn btn-success" style="width: 66%"  onclick="javascript:window.location.href='bookList.aspx'" type="button" value="返回" />  
                 </td>
             </tr>
         </table>
-    </div>
-    <div id="alert" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                ×</button>
-            <h3 id="myModalLabel">
-                提示
-            </h3>
-        </div>
-        <div class="modal-body">
-            <p>
-                你确定要保存书籍信息？</p>
-        </div>
-        <div class="modal-footer">
-            <asp:Button ID="bt_bookSave" class="btn btn-info" runat="server" Text="确定" OnClick="bt_bookSave_Click" />
-            <button class="btn" data-dismiss="modal" aria-hidden="true">
-                取消</button>
-        </div>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="under_Form" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
- <script type="text/javascript">
-     window.onload = function () {
-         $('.selectpicker').selectpicker();
-     };
-    </script>
 </asp:Content>

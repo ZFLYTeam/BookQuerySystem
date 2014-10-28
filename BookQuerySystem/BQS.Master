@@ -146,6 +146,12 @@
     <script type="text/javascript" src="libs/bootstrap/js/jqBootstrapValidation.js"></script>
     <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="libs/bootstrap-select/js/bootstrap-select.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
+            $('.selectpicker').selectpicker();
+        });
+    </script>
     <asp:ContentPlaceHolder ID="footer" runat="server"> </asp:ContentPlaceHolder>
 </body>
 </html>

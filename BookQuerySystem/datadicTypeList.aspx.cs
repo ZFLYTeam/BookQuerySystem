@@ -21,11 +21,12 @@ namespace BookQuerySystem
         protected void Page_Load(object sender, EventArgs e)
         {
             //获取数据库中的t_datadicType,绑定数据源之后显示出来
-            DataSet ds = datadicTypeDao.getDatadicType();
-            listDatadicType.DataSource = ds.Tables["t_datadicType"];
+            //DataSet ds = datadicTypeDao.getDatadicType();
+            //listDatadicType.DataSource = ds.Tables["t_datadicType"];
             if (!IsPostBack)
             {
-                listDatadicType.DataBind();
+                //listDatadicType.DataBind();
+                BindGrid();
             }
         }
 
@@ -58,6 +59,21 @@ namespace BookQuerySystem
         {
             Response.Redirect("datadicTypeSave.aspx");
             MessageBox.Show("添加成功");
+        }
+
+        protected void AspNetPagerDatadicTypeList_PageChanged(object sender, EventArgs e)
+        {
+            BindGrid();
+        }
+
+        //绑定数据源
+        public void BindGrid()
+        {
+            this.AspNetPagerDatadicTypeList.RecordCount = datadicTypeDao.GetAllCount();
+            int pageIndex = this.AspNetPagerDatadicTypeList.CurrentPageIndex - 1;
+            int pageSize = this.AspNetPagerDatadicTypeList.PageSize = 5;
+            listDatadicType.DataSource = datadicTypeDao.getDatadicType(pageIndex, pageSize);
+            listDatadicType.DataBind();
         }
     }
 }

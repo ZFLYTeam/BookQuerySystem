@@ -74,8 +74,8 @@ namespace BookQuerySystem
             {
                 if (ddlPublish.SelectedItem.Text.ToString()!="未指定")
                 {
-                    sql += " and bookPublish like '%" + ddlBookType.SelectedItem.Text + "%'";
-                    sqlCount += " and bookPublish like '%" + ddlBookType.SelectedItem.Text + "%'";
+                    sql += " and bookPublish like '%" + ddlPublish.SelectedItem.Text + "%'";
+                    sqlCount += " and bookPublish like '%" + ddlPublish.SelectedItem.Text + "%'";
                 }
             }
             catch { }

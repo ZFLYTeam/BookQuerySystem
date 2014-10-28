@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BQS.Master" AutoEventWireup="true" CodeBehind="datadicTypeList.aspx.cs" Inherits="BookQuerySystem.datadicTypeList" %>
-
+<%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="mainPage" runat="server">
- <div align="right" style="padding-top:25px">
+    <div align="right" style="padding-top:25px">
             <asp:Button ID="datadicTypeAdd" class="btn btn-primary" runat="server" 
                 Text="添加" onclick="datadicTypeAdd_Click" 
                 />
@@ -64,5 +64,13 @@
                     </div>
                 </FooterTemplate>
             </asp:Repeater>
+        </div>
+         <div align="center">
+         <webdiyer:AspNetPager ID="AspNetPagerDatadicTypeList" runat="server" class="pagination"
+                PagingButtonSpacing="0px" FirstPageText="首页" LastPageText="末页" NextPageText="下页"
+                PrevPageText="上页" Font-Names="Arial" AlwaysShow="true" ShowInputBox="Always"
+                SubmitButtonText="跳转" SubmitButtonStyle="botton" LayoutType="Div" onpagechanged="AspNetPagerDatadicTypeList_PageChanged"
+                UrlPaging="False" ReverseUrlPageIndex="True" ValidateRequestMode="Inherit" ShowMoreButtons="False">
+            </webdiyer:AspNetPager>
         </div>
 </asp:Content>

@@ -188,14 +188,4 @@
     
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
-    <script type="text/javascript">
-        window.onload = function () {
-            $('.selectpicker').selectpicker();
-        };
-    </script>
-    <script type="text/javascript">
-        function isDelete() {
-            document.getElementById("btnBookDelete").click();
-        }
-    </script>
 </asp:Content>
