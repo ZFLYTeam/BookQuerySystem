@@ -22,7 +22,7 @@
 						<div class="control-group">
 							 <label class="control-label" for="tb_newsTitle">标题</label>
 							<div class="controls">
-                            <asp:TextBox ID="tb_newsTitle" required class="form" runat="server" Width="300px"></asp:TextBox>
+                            <asp:TextBox ID="tb_newsTitle" required class="form" runat="server" Width="205px"></asp:TextBox>
 							</div>
 						</div>
                      <div class="control-group">
@@ -51,8 +51,8 @@
                             <label class="control-label"></label>
                             <div class="controls">
                                 <asp:Button ID="bt_newsAdd" class="btn btn-primary span5"  runat="server" Text="保存"
-                                    OnClick="bt_newsAdd_Click" />
-                                <input id="Button1" class="btn btn-success span5" onclick="javascript:window.location.href='newsList.aspx'" type="button" value="返回" />                           
+                                    OnClick="bt_newsAdd_Click"/>
+                                <input id="returnBackBtn" class="btn btn-success span5" onclick="javascript:window.location.href='newsList.aspx'" type="button" value="返回" "/>                           
                             </div>
                         </div>
 					</div>

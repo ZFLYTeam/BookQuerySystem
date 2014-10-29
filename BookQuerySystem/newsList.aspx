@@ -12,12 +12,33 @@
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainPage" runat="server">
-<cc1:alert ID="Alertsuccess" runat="server" Visible="False" 
+    <cc1:alert ID="AlertAddSuccess" runat="server" Visible="False" 
     AlertType="Success" Width="200px">
         <h4>
             提示!
         </h4>
         新闻添加成功(*^__^*)
+    </cc1:alert>
+    <cc1:alert ID="AlertModifySuccess" runat="server" Visible="False" 
+    AlertType="Success" Width="200px">
+        <h4>
+            提示!
+        </h4>
+        新闻修改成功(*^__^*)
+    </cc1:alert>
+    <cc1:alert ID="AlertDeleteSuccess" runat="server" Visible="False" 
+    AlertType="Success" Width="200px">
+        <h4>
+            提示!
+        </h4>
+        新闻删除成功(*^__^*)
+    </cc1:alert>
+    <cc1:alert ID="AlertDeleteFalure" runat="server" Visible="False" 
+    AlertType="Error" Width="200px">
+        <h4>
+            提示!
+        </h4>
+        新闻删除失败(┬＿┬)
     </cc1:alert>
   <div align="right" style="padding-top:25px">
         </div>
@@ -79,7 +100,7 @@
                             </div>
                             <div class="modal-body">
                                 <p>
-                                    你确定要删除该条书籍信息？</p>
+                                    你确定要删除这条新闻？</p>
                             </div>
                             <div class="modal-footer">
                             <asp:Button ID="btnNewsDelete" class="btn btn-success" CommandArgument='<%#Eval("newsId")%>' CommandName="delete" runat="server" Text="删除" />

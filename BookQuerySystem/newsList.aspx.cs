@@ -19,12 +19,27 @@ namespace BookQuerySystem
         NewsDao newsDao = new NewsDao();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["flag"] == null)
-            { 
-            }
-            else if (Session["flag"].ToString() == "success")
+            //根据参数flag判断状态是什么，显示相应的alert
+            if (Session["flag"] == null) { }
+            else if (Session["flag"].ToString() == "addSuccess")
             {
-                Alertsuccess.Visible = true;
+                AlertAddSuccess.Visible = true;
+                Session.Remove("flag");
+            }
+            else if (Session["flag"].ToString() == "modifySuccess")
+            {
+                AlertModifySuccess.Visible = true;
+                Session.Remove("flag");
+            }
+            else if (Session["flag"].ToString() == "delSuccess")
+            {
+                AlertDeleteSuccess.Visible = true;
+                Session.Remove("flag");
+            }
+            else if (Session["flag"].ToString() == "delFailure")
+            {
+                AlertDeleteFalure.Visible = true;
+                Session.Remove("flag");
             }
             if (!IsPostBack)
             {
@@ -44,7 +59,13 @@ namespace BookQuerySystem
             else if (e.CommandName == "delete")
             {
                 bool b = newsDao.newsDelete((string)e.CommandArgument);
-                if (b) {
+                if (b)
+                {
+                    Session["flag"] = "delSuccess";
+                    Response.Redirect("newsList.aspx");
+                }
+                else {
+                    Session["flag"] = "delFailure";
                     Response.Redirect("newsList.aspx");
                 }
             }
@@ -62,7 +83,11 @@ namespace BookQuerySystem
 
         protected void AspNetPagerNewsList_PageChanged(object sender, EventArgs e)
         {
-            Alertsuccess.Visible = false;
+            //各种提示不可视
+            AlertAddSuccess.Visible = false;
+            AlertModifySuccess.Visible = false;
+            AlertDeleteSuccess.Visible = false;
+            AlertDeleteFalure.Visible = false;
             BindGrid();
         }
 

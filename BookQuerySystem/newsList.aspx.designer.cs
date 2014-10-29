@@ -13,13 +13,40 @@ namespace BookQuerySystem {
     public partial class newsList {
         
         /// <summary>
-        /// Alertsuccess 控件。
+        /// AlertAddSuccess 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Twitter.Web.Controls.Alert Alertsuccess;
+        protected global::Twitter.Web.Controls.Alert AlertAddSuccess;
+        
+        /// <summary>
+        /// AlertModifySuccess 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Twitter.Web.Controls.Alert AlertModifySuccess;
+        
+        /// <summary>
+        /// AlertDeleteSuccess 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Twitter.Web.Controls.Alert AlertDeleteSuccess;
+        
+        /// <summary>
+        /// AlertDeleteFalure 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Twitter.Web.Controls.Alert AlertDeleteFalure;
         
         /// <summary>
         /// listNews 控件。

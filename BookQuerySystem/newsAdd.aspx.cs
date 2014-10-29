@@ -51,7 +51,17 @@ namespace BookQuerySystem
                 news.UserId = Convert.ToInt32(userDdl.SelectedValue);
                 news.NewsModifyTime = DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss");
                 news.NewsBody = tb_newsBody.Text;
-                b = newsDao.newsModify(news);
+
+                try
+                {
+                    newsDao.newsModify(news);
+                    Session["flag"] = "modifySuccess";
+                    Response.Redirect("newsList.aspx");
+                }
+                catch
+                {
+                    Alertfail.Visible = true;
+                }
             }
             else 
             {
@@ -61,9 +71,19 @@ namespace BookQuerySystem
                 news.NewsBody = tb_newsBody.Text;
                 news.NewsRepTime = DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss");
                 news.NewsModifyTime = " ";
-                b = newsDao.newsAdd(news);
+                try
+                {
+                    newsDao.newsAdd(news);
+                    //跳转到本页面，同时激活alertsuccess
+                    Session["flag"] = "addSuccess";
+                    Response.Redirect("newsList.aspx");
+                }
+                catch
+                {
+                    Alertfail.Visible = true;
+                }
             }
-            if (b)
+           /* if (b)
             {
                 Session["flag"] = "success";
                 Response.Redirect("newsList.aspx");
@@ -71,7 +91,7 @@ namespace BookQuerySystem
             else
             {
                 Alertfail.Visible = true;
-            }
+            */
  
         }
         
