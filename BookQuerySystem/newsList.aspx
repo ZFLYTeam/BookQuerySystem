@@ -66,7 +66,27 @@
                             <%#Eval("newsBody")%>
                         </td>
                         <td>
-                            <asp:Button ID="btnNewsDelete" class="btn btn-mini  btn-danger" CommandArgument='<%#Eval("newsId")%>' CommandName="delete" runat="server" Text="删除" />
+                           <button href="#alert" data-toggle="modal" class="btn btn-mini  btn-danger">
+                            删除</button>
+                        <div id="alert" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    ×</button>
+                                <h3 id="myModalLabel">
+                                    提示
+                                </h3>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    你确定要删除该条书籍信息？</p>
+                            </div>
+                            <div class="modal-footer">
+                            <asp:Button ID="btnNewsDelete" class="btn btn-success" CommandArgument='<%#Eval("newsId")%>' CommandName="delete" runat="server" Text="删除" />
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">
+                                    取消</button>
+                            </div>
+                        </div>
                             <asp:Button ID="btnNewsModify" class="btn btn-mini  btn-info" CommandArgument='<%#Eval("newsId")%>' CommandName="modify" runat="server" Text="修改" />
                             <asp:Button ID="btnNewsDetails" class="btn btn-mini  btn-info" CommandArgument='<%#Eval("newsId")%>' CommandName="details" runat="server" Text="详情" />
                         </td>
@@ -79,16 +99,13 @@
             </asp:Repeater>
         </div>
         <div class="row" style="margin-top: 15px;">
-                <div style='font-size:14px;' class="span4">
-                    <label style="color:#20A8D8; font-size:14px; width: 300px;">共<%=this.AspNetPagerNewsList.RecordCount%>条记录</label> 
-                </div>
-            <div align="right">
-                <webdiyer:AspNetPager ID="AspNetPagerNewsList" runat="server" CssClass="easypager" CurrentPageButtonClass="cpb" Width="100%"
-                 NumericButtonTextFormatString={0} FirstPageText="首页" LastPageText="末页" 
-                 NextPageText="下页" PrevPageText="上页" Font-Names="Arial" AlwaysShow="true" 
-                 ShowInputBox="Always" SubmitButtonText="跳转" SubmitButtonStyle="botton" 
-                 LayoutType="Div" onpagechanged="AspNetPagerNewsList_PageChanged">
-                </webdiyer:AspNetPager>
+            <div align="center">
+                <webdiyer:AspNetPager ID="AspNetPagerNewsList" runat="server" class="pagination"
+                PagingButtonSpacing="0px" FirstPageText="首页" LastPageText="末页" NextPageText="下页"
+                PrevPageText="上页" Font-Names="Arial" AlwaysShow="true" ShowInputBox="Always"
+                SubmitButtonText="跳转" SubmitButtonStyle="botton" LayoutType="Div" OnPageChanged="AspNetPagerNewsList_PageChanged"
+                UrlPaging="False" ReverseUrlPageIndex="True" ValidateRequestMode="Inherit" ShowMoreButtons="False">
+            </webdiyer:AspNetPager>
             </div>
         </div>
 </asp:Content>

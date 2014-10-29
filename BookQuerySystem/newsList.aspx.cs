@@ -50,7 +50,8 @@ namespace BookQuerySystem
             }
             else if (e.CommandName == "details")
             {
-                Response.Redirect("newsDetails.aspx");
+                string url= "newsDetails.aspx?newsId=" + e.CommandArgument;
+                Response.Redirect(url);
             }
         }
 

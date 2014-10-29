@@ -74,11 +74,6 @@ namespace BookQuerySystem
             }
  
         }
-
-        //返回
-        protected void bt_newsReset_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("newsList.aspx");
-        }
+        
     }
 }

@@ -19,29 +19,16 @@ namespace BookQuerySystem
     {
         //初始化一个NewsDao
         NewsDao newsDao = new NewsDao();
-        News news = null;
+        News news = new News();
         protected void Page_Load(object sender, EventArgs e)
         {
             int newsId = Convert.ToInt32(Context.Request["newsId"]);
             //根据newsList页面传过来的newsId从数据库中获取news对象
             news = newsDao.findById(newsId);
-            if (!IsPostBack)
-            {
-                if (Context.Request["newsId"] == null)
-                {
-                    newsTitleLbl.Text = "";
-                    userNameLbl.Text = "";
-                    newsRepTimeLbl.Text = "";
-                    newsBodyLbl.Text = "";
-                }
-                else
-                {
-                    newsTitleLbl.Text = news.NewsTitle;
-                    userNameLbl.Text = Convert.ToString(news.UserId);
-                    newsRepTimeLbl.Text = news.NewsRepTime;
-                    newsBodyLbl.Text = news.NewsBody;
-                }
-            }
+            newsTitleLbl.Text = news.NewsTitle;
+            userNameLbl.Text = Convert.ToString(news.UserId);
+            newsRepTimeLbl.Text = news.NewsRepTime;
+            newsBodyLbl.Text = news.NewsBody;    
         }
     }
 }
