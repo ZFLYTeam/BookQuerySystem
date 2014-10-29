@@ -13,7 +13,10 @@ namespace BookQuerySystem
         UserDao userDao = new UserDao();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["user"] != null)
+            {
+                Session.Abandon();
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

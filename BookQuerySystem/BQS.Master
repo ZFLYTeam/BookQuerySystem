@@ -115,7 +115,10 @@
             $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
             $('.selectpicker').selectpicker();
         });
-        function logOut() { 
+        function logOut() {
+            if (confirm("您确定要退出系统吗？")) {
+                window.location.href = "login.aspx";
+            }
         }
     </script>
     <asp:ContentPlaceHolder ID="footer" runat="server"> </asp:ContentPlaceHolder>

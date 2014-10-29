@@ -159,6 +159,7 @@
     <Content Include="libs\wysiwyg\libs\bootstrap-combined.no-icons.min.css" />
     <Content Include="libs\wysiwyg\my_wysiwyg.html" />
     <Content Include="login.aspx" />
+    <Content Include="registration.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -268,6 +269,13 @@
       <DependentUpon>BQS.Master</DependentUpon>
     </Compile>
     <Compile Include="App_Code\util\StringUtil.cs" />
+    <Compile Include="registration.aspx.cs">
+      <DependentUpon>registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registration.aspx.designer.cs">
+      <DependentUpon>registration.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\bookCover\" />

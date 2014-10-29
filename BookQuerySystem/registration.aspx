@@ -1,8 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="BookQuerySystem.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="registration.aspx.cs" Inherits="BookQuerySystem.registration" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title></title>
     <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="libs/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
@@ -46,13 +47,14 @@
     <form id="form1" runat="server">
     <div class="form-signin">
         <h2 class="form-signin-heading" align="center">
-            登录 ZFLY</h2>
+            管理员注册</h2>
         <asp:TextBox ID="txtUserName" class="input-block-level" placeholder="请输入用户名" required runat="server"></asp:TextBox>
         <asp:TextBox ID="txtPassword" class="input-block-level" placeholder="请输入密码" required runat="server" TextMode="Password"></asp:TextBox>
-        <asp:Button ID="btnLogin" class="btn btn-large btn-primary" style="width:140px" 
-            runat="server" Text="登录" onclick="btnLogin_Click" />
-        <input id="btnReturn" class="btn btn-large btn-primary" style="width:140px;margin-left:15px" onclick="javasclript:window.location.href='registration.aspx'" type="button" value="注册" />  
-        <asp:Label ID="lblError" runat="server" Text=""></asp:Label>              
+        <asp:TextBox ID="txtPasswordAgain" class="input-block-level" placeholder="请重输密码"  data-validation-match-match="txtPassword" data-validation-match-message="密码不一致" aria-invalid="true" required runat="server" TextMode="Password"></asp:TextBox>
+        <asp:Button ID="btnSignUp" class="btn btn-large btn-primary" style="width:140px" 
+            runat="server" Text="注册" onclick="btnSignUp_Click" />
+        <input id="btnReturn" class="btn btn-large btn-primary" style="width:140px;margin-left:15px" onclick="javasclript:window.location.href='login.aspx'" type="button" value="返回" />   
+        <asp:Label ID="lblError" runat="server" Text=""></asp:Label>         
     </div>
     </form>
     <script type="text/javascript" src="libs/bootstrap/js/jquery.min.js"></script>
