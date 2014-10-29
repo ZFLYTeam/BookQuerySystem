@@ -66,7 +66,8 @@
                                     </li>
                                 </ul>
                                 <ul class="nav pull-right">
-                                    <li id="login" runat="server"><a href="#userLogin"  data-toggle="modal" >管理员登录</a></li>
+                                    <li><a class="fa fa-user">
+                                        <asp:Label ID="lblUser" runat="server" Text=""></asp:Label></a> </li>
                                     <li class="divider-vertical"></li>
                                     <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">系统管理<strong
                                         class="caret"></strong></a>
@@ -75,6 +76,7 @@
                                             <li><a href="datadicTypeList.aspx">数据字典类别维护</a></li>
                                             <li><a href="#">修改密码</a></li>
                                             <li class="divider"></li>
+                                            <li><a href="#">关于我们</a></li>
                                             <li><a href="javascript:logOut()">退出系统</a></li>
                                         </ul>
                                     </li>
@@ -83,49 +85,11 @@
                         </div>
                     </div>
                 </div>
-                
-                <div id="userLogin" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            ×</button>
-                        <h3 id="myModalLabel">
-                            管理员登录
-                        </h3>
-                    </div>
-                    <div class="modal-body">
-                        <table align="center">
-                            <tr>
-                                <td width="30%">
-                                    <label>用户名:</label>
-                                </td>
-                                <td width="70%">
-                                    <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                            <td width="30%">
-                                    <label>密码:</label>
-                                </td>
-                                <td width="70%">
-                                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">
-                            关闭</button>
-                        <button class="btn btn-primary">
-                            保存设置</button>
-                    </div>
-                </div>
-
             </div>
         </div>
         <asp:SiteMapPath ID="SiteMapPath1" runat="server" CssClass="breadcrumb" PathSeparator="&nbsp;/&nbsp;&nbsp;">
         </asp:SiteMapPath>
-        <div style="padding-top: 25px">
+        <div style="padding-top: 25px; height:auto; min-height:400px; _height:500px;">
             <asp:ContentPlaceHolder ID="mainPage" runat="server">
             </asp:ContentPlaceHolder>
         </div>
@@ -133,7 +97,7 @@
         <asp:ContentPlaceHolder ID="under_Form" runat="server">
         </asp:ContentPlaceHolder>
     </div>
-    <div class="container">
+    <div class="container" >
         <div class="row-fluid">
             <div class="span12">
                 <div align="center">
@@ -151,6 +115,8 @@
             $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
             $('.selectpicker').selectpicker();
         });
+        function logOut() { 
+        }
     </script>
     <asp:ContentPlaceHolder ID="footer" runat="server"> </asp:ContentPlaceHolder>
 </body>
