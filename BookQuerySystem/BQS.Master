@@ -60,8 +60,8 @@
                                     <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">新闻信息管理<strong
                                         class="caret"></strong></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">新闻信息添加</a> </li>
-                                            <li><a href="#">新闻信息维护</a> </li>
+                                            <li><a href="newsAdd.aspx">新闻信息添加</a> </li>
+                                            <li><a href="newsList.aspx">新闻信息维护</a> </li>
                                         </ul>
                                     </li>
                                 </ul>

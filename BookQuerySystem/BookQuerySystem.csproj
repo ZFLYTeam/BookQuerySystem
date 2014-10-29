@@ -60,6 +60,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="newsAdd.aspx" />
+    <Content Include="newsDetails.aspx" />
+    <Content Include="newsList.aspx" />
     <Content Include="bin\AspNetPager.dll" />
     <Content Include="bin\AspNetPager.xml" />
     <Content Include="bin\Twitter.Web.Controls.dll" />
@@ -171,6 +174,27 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="newsAdd.aspx.cs">
+      <DependentUpon>newsAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newsAdd.aspx.designer.cs">
+      <DependentUpon>newsAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newsDetails.aspx.cs">
+      <DependentUpon>newsDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newsDetails.aspx.designer.cs">
+      <DependentUpon>newsDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newsList.aspx.cs">
+      <DependentUpon>newsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newsList.aspx.designer.cs">
+      <DependentUpon>newsList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="bookDetails.aspx.cs">
       <DependentUpon>bookDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -291,6 +315,8 @@
     <Content Include="Web.sitemap">
       <SubType>Designer</SubType>
     </Content>
+    <Compile Include="App_Code\dao\newsDao.cs" />
+    <Compile Include="App_Code\model\News.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
