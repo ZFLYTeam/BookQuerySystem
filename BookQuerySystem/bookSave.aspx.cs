@@ -155,7 +155,7 @@ namespace BookQuerySystem
             return imageName;
         }
 
-        //修改之后删除图片
+        //删除图片
         public void DeleteDiskFile(string ImageUrl)
         {
             try

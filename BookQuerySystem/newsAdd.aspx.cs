@@ -20,8 +20,16 @@ namespace BookQuerySystem
         //初始化一个NewsDao
         NewsDao newsDao = new NewsDao();
         News news = null;
+        String s;//暂存用户名
+        User user = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //根据session获取当前用户
+            if (Session["user"] != null)
+            {
+                user = (User)Session["user"];
+                s = Convert.ToString(user.UserId);
+            }
             int newsId = Convert.ToInt32(Context.Request["newsId"]);
             //根据newsList页面传过来的newsId从数据库中获取news对象
             news = newsDao.findById(newsId);
@@ -31,6 +39,8 @@ namespace BookQuerySystem
                 {
                     tb_newsTitle.Text = "";
                     tb_newsBody.Text = "";
+                    //根据当前用户初始化下拉框选项
+                    userDdl.SelectedValue = s;
                 }
                 else
                 {

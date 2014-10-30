@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using BookQuerySystem;
+using System.IO;
 
 
 namespace BookQuerySystem
@@ -87,7 +88,7 @@ namespace BookQuerySystem
 
         protected void listBook_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            //点击修改，跳转到bookTypeModify,并且将bokTypeId作为参数传过去
+            //点击修改，跳转到bookModify,并且将bookId作为参数传过去
             if (e.CommandName == "modify")
             {
                 string url;
@@ -96,8 +97,12 @@ namespace BookQuerySystem
             }
             else if (e.CommandName == "delete")
             {
+                //根据id获取书籍信息
+                Book book = bookDao.findById((int)e.CommandArgument);
                 bool b = bookDao.bookDelete((string)e.CommandArgument);
                 if(b){
+                     //删除书籍封面
+                     DeleteDiskFile(book.BookCover);
                      Session["flag"] = "delSuccess";
                      Response.Redirect("bookList.aspx");
                 }else{
@@ -156,5 +161,18 @@ namespace BookQuerySystem
             ddlBookType.ClearSelection();
         }
 
+        //删除图片
+        public void DeleteDiskFile(string ImageUrl)
+        {
+            try
+            {
+                string FilePath = Server.MapPath("images/bookCover/" + ImageUrl);//转换物理路径
+                File.Delete(FilePath);//执行IO文件删除,需引入命名空间System.IO;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

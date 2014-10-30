@@ -4,7 +4,6 @@
         <siteMapNode  title="书籍信息管理"  description="书籍信息管理">
             <siteMapNode url="bookSave.aspx" title="书籍信息添加"  description="书籍信息添加" />
             <siteMapNode url="bookList.aspx" title="书籍信息维护"  description="书籍信息维护" />
-            <siteMapNode url="bookDetails.aspx" title="书籍详细信息"  description="书籍详细信息" />
         </siteMapNode>
         <siteMapNode  title="书籍类别管理"  description="书籍类别管理">
             <siteMapNode url="bookTypeSave.aspx" title="书籍类别添加"  description="书籍类别添加" />
@@ -18,5 +17,11 @@
             <siteMapNode url="datadicTypeSave.aspx" title="数据字典类型维护"  description="数据字典类型维护" />
             <siteMapNode url="datadicTypeList.aspx" title="数据字典类型维护"  description="数据字典类型维护" />
         </siteMapNode>
+        <siteMapNode  title="新闻信息管理"  description="新闻管理">
+            <siteMapNode url="newsList.aspx" title="新闻信息维护"  description="新闻信息维护" />
+            <siteMapNode url="newsAdd.aspx" title="新闻信息添加"  description="新闻信息维护" />
+        </siteMapNode>
+        <siteMapNode url="newsDetails.aspx"  title="新闻详情"  description="新闻管理" />
+        <siteMapNode url="bookDetails.aspx" title="书籍详细信息"  description="书籍详细信息" />
     </siteMapNode>
 </siteMap>

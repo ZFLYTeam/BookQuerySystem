@@ -11,6 +11,12 @@
         </h4>
         书籍类别保存成功
     </cc1:Alert>
+    <cc1:Alert ID="AlertFailure" runat="server" Visible="False" AlertType="Error">
+        <h4>
+            提示!
+        </h4>
+        该类别下有书籍不能删除！！！
+    </cc1:Alert>
  <div align="right">
             <asp:Button ID="bookTypeAdd" class="btn btn-primary" runat="server" Text="添加" 
                 onclick="bookTypeAdd_Click"/>
@@ -42,7 +48,28 @@
                             <%#Eval("bookTypeDesc")%>
                         </td>
                         <td>
-                            <asp:Button ID="bookTypeDelete" class="btn btn-mini btn-danger" CommandArgument='<%#Eval("bookTypeId")%>' CommandName="delete" runat="server" Text="删除" />
+                        <button href="#alert" data-toggle="modal" class="btn btn-mini  btn-danger">
+                            删除</button>
+                        <div id="alert" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    ×</button>
+                                <h3 id="myModalLabel">
+                                    提示
+                                </h3>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    你确定要删除该条书籍信息？</p>
+                            </div>
+                            <div class="modal-footer">
+                    <asp:Button ID="bookTypeDelete" class="btn btn-success" CommandArgument='<%#Eval("bookTypeId")%>' CommandName="delete" runat="server" Text="删除" />
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">
+                                    取消</button>
+                            </div>
+                        </div>
+                            
                             <asp:Button ID="bookTypeModify" class="btn btn-mini btn-info" CommandArgument='<%#Eval("bookTypeId")%>' CommandName="modify" runat="server" Text="修改" />
                         </td>
                     </tr>

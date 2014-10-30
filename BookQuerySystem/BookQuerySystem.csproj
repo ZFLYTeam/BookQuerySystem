@@ -163,6 +163,7 @@
     <Content Include="libs\wysiwyg\my_wysiwyg.html" />
     <Content Include="login.aspx" />
     <Content Include="registration.aspx" />
+    <Content Include="userModify.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -299,6 +300,13 @@
     </Compile>
     <Compile Include="registration.aspx.designer.cs">
       <DependentUpon>registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userModify.aspx.cs">
+      <DependentUpon>userModify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userModify.aspx.designer.cs">
+      <DependentUpon>userModify.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

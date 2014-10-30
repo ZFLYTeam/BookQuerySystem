@@ -36,6 +36,7 @@ namespace BookQuerySystem
 
         protected void AspNetPagerBookTypeList_PageChanged(object sender, EventArgs e)
         {
+            AlertFailure.Visible = false;
             BindGrid();
         }
 
@@ -56,10 +57,13 @@ namespace BookQuerySystem
                 int bookTypeId = Convert.ToInt32(e.CommandArgument.ToString());
                 BookType bookType = new BookType();
                 bookType.BookTypeId = bookTypeId;
-                bool b = bookTypeDao.bookTypeDelete(bookType);
-                if (b)
+                try
                 {
+                    bookTypeDao.bookTypeDelete(bookType);
                     Response.Redirect("bookTypeList.aspx");
+                }
+                catch {
+                    AlertFailure.Visible = true;
                 }
             }
             //点击修改，跳转到bookTypeModify,并且将bokTypeId作为参数传过去

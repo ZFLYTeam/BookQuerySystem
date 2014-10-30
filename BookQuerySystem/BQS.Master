@@ -74,16 +74,35 @@
                                         <ul class="dropdown-menu">
                                             <li><a href="datadicList.aspx">数据字典维护</a></li>
                                             <li><a href="datadicTypeList.aspx">数据字典类别维护</a></li>
-                                            <li><a href="#">修改密码</a></li>
+                                            <li><a href="userModify.aspx">修改密码</a></li>
                                             <li class="divider"></li>
                                             <li><a href="#">关于我们</a></li>
-                                            <li><a href="javascript:logOut()">退出系统</a></li>
+                                            <li><a href="#alertExit" data-toggle="modal">退出系统</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div id="alertExit" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        ×</button>
+                    <h3 id="myModalLabel">
+                        提示
+                    </h3>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        你确定退出系统？</p>
+                </div>
+                <div class="modal-footer">
+                    <input id="btnLogOut" type="button" class="btn btn-success" onclick="javascript:logOut()" value="确定" />
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">
+                        取消</button>
                 </div>
             </div>
         </div>
@@ -116,9 +135,7 @@
             $('.selectpicker').selectpicker();
         });
         function logOut() {
-            if (confirm("您确定要退出系统吗？")) {
-                window.location.href = "login.aspx";
-            }
+            window.location.href = "login.aspx";
         }
     </script>
     <asp:ContentPlaceHolder ID="footer" runat="server"> </asp:ContentPlaceHolder>
