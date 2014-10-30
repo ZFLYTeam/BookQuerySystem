@@ -61,7 +61,7 @@
                             </div>
                             <div class="modal-body">
                                 <p>
-                                    你确定要删除该条书籍信息？</p>
+                                    你确定要删除该条书籍类别信息？</p>
                             </div>
                             <div class="modal-footer">
                     <asp:Button ID="bookTypeDelete" class="btn btn-success" CommandArgument='<%#Eval("bookTypeId")%>' CommandName="delete" runat="server" Text="删除" />

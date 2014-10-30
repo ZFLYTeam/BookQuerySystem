@@ -98,7 +98,7 @@ namespace BookQuerySystem
             else if (e.CommandName == "delete")
             {
                 //根据id获取书籍信息
-                Book book = bookDao.findById((int)e.CommandArgument);
+                Book book = bookDao.findById((string)e.CommandArgument);
                 bool b = bookDao.bookDelete((string)e.CommandArgument);
                 if(b){
                      //删除书籍封面

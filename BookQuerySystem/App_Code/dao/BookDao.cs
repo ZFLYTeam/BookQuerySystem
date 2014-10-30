@@ -106,7 +106,7 @@ namespace BookQuerySystem
             return ds;
         }
         //根据主键查询某一个Book
-        public Book findById(int bookId)
+        public Book findById(string bookId)
         {
             sqlCon = dbUtil.getCon();
             Book resultBook= null;

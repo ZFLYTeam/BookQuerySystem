@@ -34,7 +34,7 @@ namespace BookQuerySystem
             Session.Remove("flag");
             int bookId = Convert.ToInt32(Context.Request["bookId"]);
             //根据bookList页面传过来的bookId从数据库中获取book对象
-            book = bookDao.findById(bookId);
+            book = bookDao.findById(bookId.ToString());
             if (!IsPostBack)
             {
                 if (Context.Request["bookId"] == null)
