@@ -97,5 +97,36 @@ namespace BookQuerySystem
             dbUtil.close(con);
             return resultDatadic;
         }
+
+        //根据传进来的[当前页码,每页记录条数]返回DataSet
+        public DataSet getDatadic(int pageIndex, int pageSize)
+        {
+            //设置导入的起始地址
+            int firstPage = pageIndex * pageSize;
+            con = dbUtil.getCon();
+            string cmdText = "select * from t_datadic";
+            SqlDataAdapter da = new SqlDataAdapter(cmdText, con);//创建数据适配器实例对象
+            DataSet ds = new DataSet();//创建数据集示例对象
+            da.Fill(ds, firstPage, pageSize, "t_datadic");//填充
+            return ds;
+        }
+
+        //获得查询数据的总条数
+        public int GetAllCount()
+        {
+            con = dbUtil.getCon();
+            string cmdText = "select count(*) as COUNT from t_datadic";
+            SqlCommand sqlCmd = new SqlCommand(cmdText, con);//查询对象
+            SqlDataReader sqlDr = sqlCmd.ExecuteReader();//创建逐行数据读取器对象
+            if (sqlDr.Read())
+            {
+                return (int)sqlDr["COUNT"];
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        
     }
 }

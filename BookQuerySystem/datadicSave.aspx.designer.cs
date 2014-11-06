@@ -13,22 +13,22 @@ namespace BookQuerySystem {
     public partial class datadicSave {
         
         /// <summary>
-        /// tb_ddTypeId 控件。
+        /// tb_ddtypeId 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_ddTypeId;
+        protected global::System.Web.UI.WebControls.TextBox tb_ddtypeId;
         
         /// <summary>
-        /// tb_ddVale 控件。
+        /// tb_ddValue 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_ddVale;
+        protected global::System.Web.UI.WebControls.TextBox tb_ddValue;
         
         /// <summary>
         /// tb_ddDesc 控件。
@@ -47,5 +47,14 @@ namespace BookQuerySystem {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_modify;
+        
+        /// <summary>
+        /// Label1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using BookQuerySystem;
+using System.Windows.Forms;
 
 namespace BookQuerySystem
 {
@@ -22,15 +23,16 @@ namespace BookQuerySystem
             if (!IsPostBack)
             {
                 if (Context.Request["ddId"] == null)
-                {
-                    tb_ddTypeId.Text = "";
-                    tb_ddVale.Text = "";
+                {   
+                    tb_ddtypeId.Text ="";
                     tb_ddDesc.Text = "";
+                    tb_ddValue.Text = ""; 
+                 
                 }
                 else
                 {
-                    tb_ddTypeId.Text = Convert.ToString(datadic.DdTypeId);
-                    tb_ddVale.Text = datadic.DdValue;
+                    tb_ddtypeId.Text = datadic.DdTypeId.ToString();
+                    tb_ddValue.Text = datadic.DdValue;
                     tb_ddDesc.Text = datadic.DdDesc;
                 }
             }
@@ -42,19 +44,20 @@ namespace BookQuerySystem
             if (Context.Request["ddId"] != null)
             {
                 datadic.DdId = Convert.ToInt32(Context.Request["ddId"]);
-                datadic.DdTypeId = Convert.ToInt32(tb_ddTypeId.Text);
-                datadic.DdValue = tb_ddVale.Text;
+                datadic.DdTypeId =Convert.ToInt32(tb_ddtypeId.Text);
+                datadic.DdValue = tb_ddValue.Text;
                 datadic.DdDesc = tb_ddDesc.Text;
                 b = datadicDao.datadicUpdate(datadic);
             }
             else
             {
                 datadic = new Datadic();
-                datadic.DdTypeId = Convert.ToInt32(tb_ddTypeId.Text);
-                datadic.DdValue = tb_ddVale.Text;
+                datadic.DdTypeId = Convert.ToInt32(tb_ddtypeId.Text);
+                datadic.DdValue = tb_ddValue.Text;
                 datadic.DdDesc = tb_ddDesc.Text;
                 b = datadicDao.datadicAdd(datadic);
             }
+            MessageBox.Show("保存成功");
         }
 
     }

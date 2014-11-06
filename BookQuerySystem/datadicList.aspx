@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BQS.Master" AutoEventWireup="true" CodeBehind="datadicList.aspx.cs" Inherits="BookQuerySystem.datadicList" %>
+<%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainPage" runat="server">
@@ -17,7 +18,7 @@
                                    数据字典类型名
                                 </th>   
                                 <th>
-                                   数据字典价格
+                                   数据字典值
                                 </th>                           
                                 <th>
                                     数据字典描述
@@ -70,4 +71,13 @@
                 </FooterTemplate>
   </asp:Repeater>
   </div>
+  
+         <div align="center">
+         <webdiyer:AspNetPager ID="AspNetPagerDatadicList" runat="server" class="pagination"
+                PagingButtonSpacing="0px" FirstPageText="首页" LastPageText="末页" NextPageText="下页"
+                PrevPageText="上页" Font-Names="Arial" AlwaysShow="true" ShowInputBox="Always"
+                SubmitButtonText="跳转" SubmitButtonStyle="botton" LayoutType="Div" onpagechanged="AspNetPagerDatadicList_PageChanged"
+                UrlPaging="False" ReverseUrlPageIndex="True" ValidateRequestMode="Inherit" ShowMoreButtons="False">
+            </webdiyer:AspNetPager>
+        </div>
 </asp:Content>
