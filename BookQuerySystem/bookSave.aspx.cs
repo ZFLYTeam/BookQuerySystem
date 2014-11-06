@@ -61,6 +61,7 @@ namespace BookQuerySystem
         protected void bt_bookSave_Click(object sender, EventArgs e)
         {
             if (tb_bookName.Text == "") {
+                //判断书是否为空，现在基本没有作用
                 Session["flag"] = "isEmpty";
                 Response.Redirect("bookSave.aspx");
             }

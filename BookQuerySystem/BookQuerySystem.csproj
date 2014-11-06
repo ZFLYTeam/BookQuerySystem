@@ -38,6 +38,9 @@
       <HintPath>F:\Web\ASP.NET\BookQuerySystem\BookQuerySystem\bin\AspNetPager.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -60,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="libs\modal\modal.js" />
     <Content Include="newsAdd.aspx" />
     <Content Include="newsDetails.aspx" />
     <Content Include="newsList.aspx" />
@@ -325,6 +329,9 @@
     </Content>
     <Compile Include="App_Code\dao\newsDao.cs" />
     <Compile Include="App_Code\model\News.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

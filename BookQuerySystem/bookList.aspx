@@ -141,28 +141,7 @@
                         <%#Eval("bookTypeName")%>
                     </td>
                     <td>
-                        <button href="#alert" data-toggle="modal" class="btn btn-mini  btn-danger">
-                            删除</button>
-                        <div id="alert" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                    ×</button>
-                                <h3 id="myModalLabel">
-                                    提示
-                                </h3>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    你确定要删除该条书籍信息？</p>
-                            </div>
-                            <div class="modal-footer">
-                            <asp:Button ID="btnBookDelete" class="btn btn-success" CommandArgument='<%#Eval("bookId")%>'
-                            CommandName="delete" runat="server" Text="确认" ClientIDMode="Static" />
-                                <button class="btn" data-dismiss="modal" aria-hidden="true">
-                                    取消</button>
-                            </div>
-                        </div>
+                        <input id="btnBookDelete" type="button" class="btn btn-mini  btn-danger" onclick='<%#Eval("bookId", "confirm(\"{0}\")")%>'  value="删除" />
                         <asp:Button ID="btnBookModify" class="btn btn-mini  btn-info" CommandArgument='<%#Eval("bookId")%>'
                             CommandName="modify" runat="server" Text="修改" />
                         <asp:Button ID="btnBookDetails" class="btn btn-mini  btn-info" CommandArgument='<%#Eval("bookId")%>'
@@ -185,7 +164,25 @@
             </webdiyer:AspNetPager>
         </div>
     </div>
-    
+
+    <!-- 删除书籍用的两个控件，在单击repeater里面的删除按钮，调用confirm()的js函数，将参数bookId传到txtBookId中，然后再触发按钮btnDelete-->
+    <div>
+        <asp:Button ID="btnDelete" runat="server" Text="删除" OnClick="btnDelete_Click" hidden="hidden"/>
+        <asp:TextBox ID="txtBookId" runat="server" style="display:none" ></asp:TextBox>
+    </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
+    <script type="text/javascript">
+        function confirm(str) {
+            Modal.confirm(
+            { msg: "确定删除该书籍？" }).on(
+            function (e) {
+                if (e) {
+                    document.getElementById("<%=txtBookId.ClientID %>").value = str;
+                    document.getElementById("<%=btnDelete.ClientID %>").click();
+                }
+            }
+            );
+        }
+    </script>
 </asp:Content>

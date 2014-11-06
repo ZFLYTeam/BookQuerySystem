@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using BookQuerySystem;
 using System.IO;
+using System.Web.UI.HtmlControls;
 
 
 namespace BookQuerySystem
@@ -20,7 +21,6 @@ namespace BookQuerySystem
     {
         BookDao bookDao = new BookDao();
         //初始化查询语句
-        public string bookIdforDelete;
         string sql = "select * from view_book where bookId > 0";//查询语句
         string sqlCount = "select count(*) as COUNT from view_book where bookId >0";//查询总数量语句
         protected void Page_Load(object sender, EventArgs e)
@@ -95,26 +95,30 @@ namespace BookQuerySystem
                 url = "bookSave.aspx?bookId=" + e.CommandArgument;
                 Response.Redirect(url);
             }
-            else if (e.CommandName == "delete")
-            {
-                //根据id获取书籍信息
-                Book book = bookDao.findById((string)e.CommandArgument);
-                bool b = bookDao.bookDelete((string)e.CommandArgument);
-                if(b){
-                     //删除书籍封面
-                     DeleteDiskFile(book.BookCover);
-                     Session["flag"] = "delSuccess";
-                     Response.Redirect("bookList.aspx");
-                }else{
-                    Session["flag"] = "delFailure";
-                    Response.Redirect("bookList.aspx");
-                }
-            }
             else if (e.CommandName == "details")
             {
                 string url;
                 url = "bookDetails.aspx?bookId=" + e.CommandArgument;
                 Response.Redirect(url);
+            }
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            //根据id获取书籍信息
+            Book book = bookDao.findById(txtBookId.Text);
+            bool b = bookDao.bookDelete(txtBookId.Text);
+            if (b)
+            {
+                //删除书籍封面
+                DeleteDiskFile(book.BookCover);
+                Session["flag"] = "delSuccess";
+                Response.Redirect("bookList.aspx");
+            }
+            else
+            {
+                Session["flag"] = "delFailure";
+                Response.Redirect("bookList.aspx");
             }
         }
 
@@ -154,6 +158,7 @@ namespace BookQuerySystem
             BindGrid();
         }
 
+        //检索书籍的时候重置按钮
         protected void btnReset_Click(object sender, EventArgs e)
         {
             txtAuthor.Text = "";

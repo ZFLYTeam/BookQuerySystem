@@ -6,6 +6,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>ZFLY图书查询系统</title>
+    <style type="text/css">
+        body
+        {
+            font-family: "楷体";
+        }
+    </style>
     <link  href="libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link  href="libs/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
     <link  href="libs/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
@@ -125,10 +131,30 @@
             </div>
         </div>
     </div>
+           <!-- system modal start -->
+        <div id="ycf-alert" class="modal" hidden="hidden">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+                        <h5 class="modal-title"><i class="fa fa-exclamation-circle"></i> [Title]</h5>
+                    </div>
+                    <div class="modal-body small">
+                        <p>[Message]</p>
+                    </div>
+                    <div class="modal-footer" >
+                        <button type="button" class="btn btn-primary ok" data-dismiss="modal">[BtnOk]</button>
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal">[BtnCancel]</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- system modal end -->
     <script type="text/javascript" src="libs/bootstrap/js/jquery.min.js"></script>
     <script type="text/javascript" src="libs/bootstrap/js/jqBootstrapValidation.js"></script>
     <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="libs/bootstrap-select/js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="libs/modal/modal.js"></script>
     <script type="text/javascript">
         $(function () {
             $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
