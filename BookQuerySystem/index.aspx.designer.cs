@@ -10,60 +10,87 @@
 namespace BookQuerySystem {
     
     
-    public partial class datadicSave {
+    public partial class index {
         
         /// <summary>
-        /// ddlDatadicType 控件。
+        /// form1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDatadicType;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SqlDdlDataDicType 控件。
+        /// txtSearch 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDdlDataDicType;
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
         
         /// <summary>
-        /// tb_ddValue 控件。
+        /// btnSearch 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_ddValue;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// tb_ddDesc 控件。
+        /// rptBookTypeList 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_ddDesc;
+        protected global::System.Web.UI.WebControls.Repeater rptBookTypeList;
         
         /// <summary>
-        /// btn_modify 控件。
+        /// SqlBookType 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_modify;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlBookType;
         
         /// <summary>
-        /// Label1 控件。
+        /// rptNews 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Repeater rptNews;
+        
+        /// <summary>
+        /// SqlNewList 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlNewList;
+        
+        /// <summary>
+        /// listBook 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater listBook;
+        
+        /// <summary>
+        /// AspNetPagerBookList 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Wuqi.Webdiyer.AspNetPager AspNetPagerBookList;
     }
 }

@@ -6,16 +6,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>ZFLY图书查询系统</title>
-    <style type="text/css">
-        body
-        {
-            font-family: "楷体";
-        }
-    </style>
     <link  href="libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link  href="libs/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
     <link  href="libs/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="libs/css/autocut.css" rel="stylesheet" />
     <link rel="shortcut icon" href="images/favicon.png" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -132,7 +127,7 @@
         </div>
     </div>
            <!-- system modal start -->
-        <div id="ycf-alert" class="modal" hidden="hidden">
+        <div id="ycf-alert" class="modal" hidden="hidden" style="display:none;">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -161,7 +156,7 @@
             $('.selectpicker').selectpicker();
         });
         function logOut() {
-            window.location.href = "login.aspx";
+            window.location.href = "index.aspx";
         }
     </script>
     <asp:ContentPlaceHolder ID="footer" runat="server"> </asp:ContentPlaceHolder>

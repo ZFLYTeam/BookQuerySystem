@@ -10,60 +10,51 @@
 namespace BookQuerySystem {
     
     
-    public partial class datadicSave {
+    public partial class newsDetail {
         
         /// <summary>
-        /// ddlDatadicType 控件。
+        /// form1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDatadicType;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SqlDdlDataDicType 控件。
+        /// newsTitleLbl 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDdlDataDicType;
+        protected global::System.Web.UI.WebControls.Label newsTitleLbl;
         
         /// <summary>
-        /// tb_ddValue 控件。
+        /// userNameLbl 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_ddValue;
+        protected global::System.Web.UI.WebControls.Label userNameLbl;
         
         /// <summary>
-        /// tb_ddDesc 控件。
+        /// newsRepTimeLbl 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_ddDesc;
+        protected global::System.Web.UI.WebControls.Label newsRepTimeLbl;
         
         /// <summary>
-        /// btn_modify 控件。
+        /// newsBodyLbl 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_modify;
-        
-        /// <summary>
-        /// Label1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label newsBodyLbl;
     }
 }

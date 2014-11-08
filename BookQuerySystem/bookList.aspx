@@ -95,7 +95,7 @@
         <asp:Repeater ID="listBook" runat="server" OnItemCommand="listBook_ItemCommand">
             <HeaderTemplate>
                 <div class="data_content">
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover" style="table-layout: fixed;">
                         <tr>
                             <th>
                                 书名
@@ -109,7 +109,7 @@
                             <th>
                                 出版社
                             </th>
-                            <th>
+                            <th >
                                 描述
                             </th>
                             <th>
@@ -134,7 +134,7 @@
                     <td>
                         <%#Eval("bookPublish")%>
                     </td>
-                    <td>
+                    <td class="autocut">
                         <%#Eval("bookDesc")%>
                     </td>
                     <td>

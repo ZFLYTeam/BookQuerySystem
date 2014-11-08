@@ -63,8 +63,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bookDetail.aspx" />
+    <Content Include="images\slides\1.jpg" />
+    <Content Include="images\slides\11.jpg" />
+    <Content Include="images\slides\2.jpg" />
+    <Content Include="images\slides\22.jpg" />
+    <Content Include="images\slides\3.jpg" />
+    <Content Include="images\slides\33.jpg" />
+    <Content Include="index.aspx" />
     <Content Include="libs\modal\modal.js" />
     <Content Include="newsAdd.aspx" />
+    <Content Include="newsDetail.aspx" />
     <Content Include="newsDetails.aspx" />
     <Content Include="newsList.aspx" />
     <Content Include="bin\AspNetPager.dll" />
@@ -179,12 +188,33 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bookDetail.aspx.cs">
+      <DependentUpon>bookDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bookDetail.aspx.designer.cs">
+      <DependentUpon>bookDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="newsAdd.aspx.cs">
       <DependentUpon>newsAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="newsAdd.aspx.designer.cs">
       <DependentUpon>newsAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newsDetail.aspx.cs">
+      <DependentUpon>newsDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newsDetail.aspx.designer.cs">
+      <DependentUpon>newsDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="newsDetails.aspx.cs">
       <DependentUpon>newsDetails.aspx</DependentUpon>
@@ -339,7 +369,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53362</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

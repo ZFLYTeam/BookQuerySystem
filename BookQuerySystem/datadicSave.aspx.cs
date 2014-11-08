@@ -24,14 +24,14 @@ namespace BookQuerySystem
             {
                 if (Context.Request["ddId"] == null)
                 {   
-                    tb_ddtypeId.Text ="";
                     tb_ddDesc.Text = "";
                     tb_ddValue.Text = ""; 
                  
                 }
                 else
                 {
-                    tb_ddtypeId.Text = datadic.DdTypeId.ToString();
+                   // ddlDatadicType.SelectedItem.Value = datadic.DdTypeId.ToString();
+                    ddlDatadicType.SelectedValue = datadic.DdTypeId.ToString();
                     tb_ddValue.Text = datadic.DdValue;
                     tb_ddDesc.Text = datadic.DdDesc;
                 }
@@ -44,20 +44,21 @@ namespace BookQuerySystem
             if (Context.Request["ddId"] != null)
             {
                 datadic.DdId = Convert.ToInt32(Context.Request["ddId"]);
-                datadic.DdTypeId =Convert.ToInt32(tb_ddtypeId.Text);
+                datadic.DdTypeId =Convert.ToInt32(ddlDatadicType.SelectedItem.Value);
                 datadic.DdValue = tb_ddValue.Text;
                 datadic.DdDesc = tb_ddDesc.Text;
-                b = datadicDao.datadicUpdate(datadic);
+                datadicDao.datadicUpdate(datadic);
+                Response.Redirect("datadicList.aspx");
             }
             else
             {
                 datadic = new Datadic();
-                datadic.DdTypeId = Convert.ToInt32(tb_ddtypeId.Text);
+                datadic.DdTypeId = Convert.ToInt32(ddlDatadicType.SelectedItem.Value);
                 datadic.DdValue = tb_ddValue.Text;
                 datadic.DdDesc = tb_ddDesc.Text;
-                b = datadicDao.datadicAdd(datadic);
+                datadicDao.datadicAdd(datadic);
+                Response.Redirect("datadicList.aspx");
             }
-            MessageBox.Show("保存成功");
         }
 
     }

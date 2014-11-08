@@ -40,8 +40,6 @@
                             <%#Eval("ddDesc")%>
                         </td>
                         <td>
-                                <button href="#alert" data-toggle="modal" class="btn btn-mini  btn-danger">
-                            删除</button>
                         <div id="alert" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
                             aria-hidden="true">
                             <div class="modal-header">

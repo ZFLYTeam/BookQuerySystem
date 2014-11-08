@@ -20,7 +20,7 @@ namespace BookQuerySystem
             }
             else 
             {
-                Response.Redirect("login.aspx");
+                Response.Redirect("index.aspx");
             }
             string date = DateTime.Now.ToString("yyyy年MM月dd日");
             string weekday = DateTime.Now.ToString("dddd");

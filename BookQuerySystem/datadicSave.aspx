@@ -11,9 +11,17 @@
 					<div class="form-horizontal">
 
 						<div class="control-group">
-							 <label class="control-label" for="tb_ddtypeId">数据字典类型名</label>
+							 <label class="control-label" for="tb_ddtypeId">数据字典类型</label>
 							<div class="controls">
-								<asp:TextBox ID="tb_ddtypeId" class="form" runat="server" required Width="300px" ></asp:TextBox>
+                                <asp:DropDownList ID="ddlDatadicType" runat="server" 
+                                    DataSourceID="SqlDdlDataDicType" DataTextField="ddTypeName" 
+                                    DataValueField="ddTypeId">
+                                </asp:DropDownList>
+							    <asp:SqlDataSource ID="SqlDdlDataDicType" runat="server" 
+                                    ConnectionString="Data Source=localhost;Initial Catalog=db_BQS;Integrated Security=True" 
+                                    ProviderName="System.Data.SqlClient" 
+                                    SelectCommand="SELECT [ddTypeId], [ddTypeName] FROM [t_datadicType]">
+                                </asp:SqlDataSource>
 							</div>
 						</div>
 
