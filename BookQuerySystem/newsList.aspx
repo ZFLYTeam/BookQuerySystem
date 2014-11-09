@@ -87,27 +87,7 @@
                             <%#Eval("newsBody")%>
                         </td>
                         <td>
-                           <button href="#alert" data-toggle="modal" class="btn btn-mini  btn-danger">
-                            删除</button>
-                        <div id="alert" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                    ×</button>
-                                <h3 id="myModalLabel">
-                                    提示
-                                </h3>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    你确定要删除这条新闻？</p>
-                            </div>
-                            <div class="modal-footer">
-                            <asp:Button ID="btnNewsDelete" class="btn btn-success" CommandArgument='<%#Eval("newsId")%>' CommandName="delete" runat="server" Text="删除" />
-                                <button class="btn" data-dismiss="modal" aria-hidden="true">
-                                    取消</button>
-                            </div>
-                        </div>
+                            <input id="Button1" type="button" class="btn btn-mini  btn-danger" onclick='<%#Eval("newsId", "confirm(\"{0}\")")%>'  value="删除" />
                             <asp:Button ID="btnNewsModify" class="btn btn-mini  btn-info" CommandArgument='<%#Eval("newsId")%>' CommandName="modify" runat="server" Text="修改" />
                             <asp:Button ID="btnNewsDetails" class="btn btn-mini  btn-info" CommandArgument='<%#Eval("newsId")%>' CommandName="details" runat="server" Text="详情" />
                         </td>
@@ -129,8 +109,27 @@
             </webdiyer:AspNetPager>
             </div>
         </div>
+     <!-- 删除新闻用的两个控件，在单击repeater里面的删除按钮，调用confirm()的js函数，将参数bookId传到txtBookId中，然后再触发按钮btnDelete-->
+    <div>
+        <asp:Button ID="btnDelete" runat="server" Text="删除" hidden="hidden" 
+            onclick="btnDelete_Click"/>
+        <asp:TextBox ID="txtNewsId" runat="server" style="display:none" ></asp:TextBox>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="under_Form" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
+    <script type="text/javascript">
+        function confirm(str) {
+            Modal.confirm(
+            { msg: "确定删除该新闻？" }).on(
+            function (e) {
+                if (e) {
+                    document.getElementById("<%=txtNewsId.ClientID %>").value = str;
+                    document.getElementById("<%=btnDelete.ClientID %>").click();
+                }
+            }
+            );
+        }
+    </script>
 </asp:Content>

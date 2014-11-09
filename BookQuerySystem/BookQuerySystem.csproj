@@ -74,7 +74,6 @@
     <Content Include="libs\css\autocut.css" />
     <Content Include="libs\modal\modal.js" />
     <Content Include="newsAdd.aspx" />
-    <Content Include="newsDetail.aspx" />
     <Content Include="newsDetails.aspx" />
     <Content Include="newsList.aspx" />
     <Content Include="bin\AspNetPager.dll" />
@@ -209,13 +208,6 @@
     </Compile>
     <Compile Include="newsAdd.aspx.designer.cs">
       <DependentUpon>newsAdd.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="newsDetail.aspx.cs">
-      <DependentUpon>newsDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="newsDetail.aspx.designer.cs">
-      <DependentUpon>newsDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="newsDetails.aspx.cs">
       <DependentUpon>newsDetails.aspx</DependentUpon>

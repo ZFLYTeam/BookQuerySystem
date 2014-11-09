@@ -56,19 +56,6 @@ namespace BookQuerySystem
                 url = "newsAdd.aspx?newsId=" + e.CommandArgument;
                 Response.Redirect(url);
             }
-            else if (e.CommandName == "delete")
-            {
-                bool b = newsDao.newsDelete((string)e.CommandArgument);
-                if (b)
-                {
-                    Session["flag"] = "delSuccess";
-                    Response.Redirect("newsList.aspx");
-                }
-                else {
-                    Session["flag"] = "delFailure";
-                    Response.Redirect("newsList.aspx");
-                }
-            }
             else if (e.CommandName == "details")
             {
                 string url= "newsDetails.aspx?newsId=" + e.CommandArgument;
@@ -100,6 +87,22 @@ namespace BookQuerySystem
             listNews.DataSource = newsDao.getNews(pageIndex, pageSize);
             listNews.DataBind();
            
+        }
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            //根据id获取书籍信息
+            News news = newsDao.findById(txtNewsId.Text.ToString());
+            bool b = newsDao.newsDelete(txtNewsId.Text);
+            if (b)
+            {
+                Session["flag"] = "delSuccess";
+                Response.Redirect("bookList.aspx");
+            }
+            else
+            {
+                Session["flag"] = "delFailure";
+                Response.Redirect("bookList.aspx");
+            }
         }
     }
 }

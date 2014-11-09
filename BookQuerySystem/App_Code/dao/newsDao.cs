@@ -85,7 +85,7 @@ namespace BookQuerySystem
         }
 
         //根据主键查询某一个News
-        public News findById(int newsId)
+        public News findById(string newsId)
         {
             sqlCon = dbUtil.getCon();
             News resultNews = null;

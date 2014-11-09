@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using BookQuerySystem;
+using System.IO;
 
 namespace BookQuerySystem
 {
@@ -30,9 +31,13 @@ namespace BookQuerySystem
                 user = (User)Session["user"];
                 s = Convert.ToString(user.UserId);
             }
-            int newsId = Convert.ToInt32(Context.Request["newsId"]);
-            //根据newsList页面传过来的newsId从数据库中获取news对象
-            news = newsDao.findById(newsId);
+            //如果传过来的newsID不为空就去获取新闻信息
+            if (Context.Request["newsId"] != null)
+            {
+                string newsId = Convert.ToString(Context.Request["newsId"]);
+                //根据newsList页面传过来的newsId从数据库中获取news对象
+                news = newsDao.findById(newsId);
+            }
             if (!IsPostBack)
             {
                 if (Context.Request["newsId"] == null)
@@ -48,7 +53,7 @@ namespace BookQuerySystem
                     userDdl.SelectedValue = Convert.ToString(news.UserId);
                     tb_newsBody.Text = news.NewsBody;
                 }
-            }    
+            }
         }
 
         protected void bt_newsAdd_Click(object sender, EventArgs e)
@@ -73,7 +78,7 @@ namespace BookQuerySystem
                     Alertfail.Visible = true;
                 }
             }
-            else 
+            else
             {
                 news = new News();
                 news.NewsTitle = tb_newsTitle.Text;
@@ -93,17 +98,7 @@ namespace BookQuerySystem
                     Alertfail.Visible = true;
                 }
             }
-           /* if (b)
-            {
-                Session["flag"] = "success";
-                Response.Redirect("newsList.aspx");
-            }
-            else
-            {
-                Alertfail.Visible = true;
-            */
- 
         }
-        
+
     }
 }

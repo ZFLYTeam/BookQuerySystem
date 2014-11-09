@@ -22,7 +22,7 @@ namespace BookQuerySystem
         News news = new News();
         protected void Page_Load(object sender, EventArgs e)
         {
-            int newsId = Convert.ToInt32(Context.Request["newsId"]);
+            String newsId = Convert.ToString(Context.Request["newsId"]);
             //根据newsList页面传过来的newsId从数据库中获取news对象
             news = newsDao.findById(newsId);
             newsTitleLbl.Text = news.NewsTitle;
