@@ -61,7 +61,7 @@
                                 <th width="20%">
                                     修改时间
                                 </th>
-                                <th width="30%">
+                                <th class="autocut" width="30%">
                                     正文
                                 </th>
                                 <th width="15%">

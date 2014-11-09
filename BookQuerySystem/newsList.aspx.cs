@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using BookQuerySystem;
+using System.IO;
+using System.Web.UI.HtmlControls;
 
 namespace BookQuerySystem
 {
@@ -96,12 +98,12 @@ namespace BookQuerySystem
             if (b)
             {
                 Session["flag"] = "delSuccess";
-                Response.Redirect("bookList.aspx");
+                Response.Redirect("newsList.aspx");
             }
             else
             {
                 Session["flag"] = "delFailure";
-                Response.Redirect("bookList.aspx");
+                Response.Redirect("newsList.aspx");
             }
         }
     }

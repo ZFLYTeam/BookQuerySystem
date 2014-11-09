@@ -26,7 +26,7 @@ namespace BookQuerySystem
             //根据newsList页面传过来的newsId从数据库中获取news对象
             news = newsDao.findById(newsId);
             newsTitleLbl.Text = news.NewsTitle;
-            userNameLbl.Text = Convert.ToString(news.UserId);
+            userNameLbl.Text = Convert.ToString(Context.Request["newsId"]);
             newsRepTimeLbl.Text = news.NewsRepTime;
             newsBodyLbl.Text = news.NewsBody;    
         }
