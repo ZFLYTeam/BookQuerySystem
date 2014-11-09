@@ -71,6 +71,7 @@
     <Content Include="images\slides\3.jpg" />
     <Content Include="images\slides\33.jpg" />
     <Content Include="index.aspx" />
+    <Content Include="libs\css\autocut.css" />
     <Content Include="libs\modal\modal.js" />
     <Content Include="newsAdd.aspx" />
     <Content Include="newsDetail.aspx" />
@@ -369,8 +370,8 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>53362</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/BQS</IISUrl>
