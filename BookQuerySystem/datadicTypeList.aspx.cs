@@ -43,7 +43,6 @@ namespace BookQuerySystem
                 {
                     Response.Redirect("datadicTypeList.aspx");
                 }
-                MessageBox.Show("删除成功");
             }
             //点击修改，跳转到datadicTypeModify,并且将ddTypeId作为参数传过去
             else if (e.CommandName == "modify")
@@ -52,13 +51,11 @@ namespace BookQuerySystem
                 url = "datadicTypeSave.aspx?ddTypeId=" + e.CommandArgument;
                 Response.Redirect(url);
             }
-            MessageBox.Show("修改成功");
         }
 
         protected void datadicTypeAdd_Click(object sender, EventArgs e)
         {
             Response.Redirect("datadicTypeSave.aspx");
-            MessageBox.Show("添加成功");
         }
 
         protected void AspNetPagerDatadicTypeList_PageChanged(object sender, EventArgs e)
