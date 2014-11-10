@@ -70,6 +70,11 @@ namespace BookQuerySystem
             Response.Redirect("newsAdd.aspx");
         }
 
+        protected void newsAddBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("newsAdd.aspx");
+        }
+
         protected void AspNetPagerNewsList_PageChanged(object sender, EventArgs e)
         {
             //各种提示不可视
@@ -80,21 +85,11 @@ namespace BookQuerySystem
             BindGrid();
         }
 
-        //绑定数据源
-        public void BindGrid()
-        {
-            this.AspNetPagerNewsList.RecordCount = newsDao.GetAllCount();
-            int pageIndex = this.AspNetPagerNewsList.CurrentPageIndex - 1;
-            int pageSize = this.AspNetPagerNewsList.PageSize = 5;
-            listNews.DataSource = newsDao.getNews(pageIndex, pageSize);
-            listNews.DataBind();
-           
-        }
-        protected void btnDelete_Click(object sender, EventArgs e)
+        protected void deleteBtn_Click(object sender, EventArgs e)
         {
             //根据id获取书籍信息
-            News news = newsDao.findById(txtNewsId.Text.ToString());
-            bool b = newsDao.newsDelete(txtNewsId.Text);
+            News news = newsDao.findById(newsIdTxt.Text.ToString());
+            bool b = newsDao.newsDelete(newsIdTxt.Text);
             if (b)
             {
                 Session["flag"] = "delSuccess";
@@ -105,6 +100,16 @@ namespace BookQuerySystem
                 Session["flag"] = "delFailure";
                 Response.Redirect("newsList.aspx");
             }
+        }
+
+        //绑定数据源
+        public void BindGrid()
+        {
+            this.AspNetPagerNewsList.RecordCount = newsDao.GetAllCount();
+            int pageIndex = this.AspNetPagerNewsList.CurrentPageIndex - 1;
+            int pageSize = this.AspNetPagerNewsList.PageSize = 5;
+            listNews.DataSource = newsDao.getNews(pageIndex, pageSize);
+            listNews.DataBind();   
         }
     }
 }

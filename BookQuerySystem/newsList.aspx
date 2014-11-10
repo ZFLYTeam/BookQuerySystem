@@ -3,13 +3,7 @@
 <%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
 <%@ Register Assembly="Twitter.Web.Controls" Namespace="Twitter.Web.Controls" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<style>
-.easypager { font: 11px Arial, Helvetica, sans-serif;padding:10px 20px 10px 0; margin: 0px;}
-.easypager a {padding: 1px 6px; border: solid 1px #ddd; background: #fff; text-decoration: none;margin-right:2px}
-.easypager a:visited {padding: 1px 6px; border: solid 1px #ddd; background: #fff; text-decoration: none;}
-.easypager .cpb {padding: 1px 6px;font-weight: bold; font-size: 13px;border:none}
-.easypager a:hover {color: #fff; background: #ffa501;border-color:#ffa501;text-decoration: none;}
-</style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainPage" runat="server">
     <cc1:alert ID="AlertAddSuccess" runat="server" Visible="False" 
@@ -40,28 +34,30 @@
         </h4>
         新闻删除失败(┬＿┬)
     </cc1:alert>
-  <div align="right" style="padding-top:25px">
-        </div>
+    <div align="right" style="padding-top:25px">
+        <asp:Button ID="newsAddBtn" class="btn btn-sm btn-primary" runat="server" Text="添加" 
+            onclick="newsAddBtn_Click" />
+    </div>
         <div style="padding-top:25px">
             <asp:Repeater ID="listNews" runat="server" 
                 onitemcommand="listNews_ItemCommand" >
                 <HeaderTemplate>
                     <div class="data_content">
-                        <table class="table table-bordered table-hover">
+                        <table class="table table-bordered table-hover" style="table-layout:fixed;align:center;">
                             <tr>
-                                <th width="10%">
+                                <th width="13%">
                                     标题
                                 </th>
-                                <th width="5%">
+                                <th width="7%">
                                     作者
                                 </th>
-                                <th width="20%">
+                                <th  width="17%">
                                     发布时间
                                 </th>
-                                <th width="20%">
+                                <th width="17%">
                                     修改时间
                                 </th>
-                                <th class="autocut" width="30%">
+                                <th width="31%">
                                     正文
                                 </th>
                                 <th width="15%">
@@ -71,7 +67,7 @@
                 </HeaderTemplate>
                 <ItemTemplate>
                     <tr>
-                        <td >
+                        <td class="autocut">
                             <%#Eval("newsTitle")%>
                         </td>
                         <td >
@@ -83,11 +79,11 @@
                         <td>
                             <%#Eval("newsModifyTime")%>
                         </td>
-                        <td>
+                        <td class="autocut">
                             <%#Eval("newsBody")%>
                         </td>
                         <td>
-                            <input id="Button1" type="button" class="btn btn-mini  btn-danger" onclick='<%#Eval("newsId", "confirm(\"{0}\")")%>'  value="删除" />
+                            <input id="newsDeleteBtn" type="button" class="btn btn-mini  btn-danger" onclick='<%#Eval("newsId", "confirm(\"{0}\")")%>'  value="删除" />
                             <asp:Button ID="btnNewsModify" class="btn btn-mini  btn-info" CommandArgument='<%#Eval("newsId")%>' CommandName="modify" runat="server" Text="修改" />
                             <asp:Button ID="btnNewsDetails" class="btn btn-mini  btn-info" CommandArgument='<%#Eval("newsId")%>' CommandName="details" runat="server" Text="详情" />
                         </td>
@@ -111,9 +107,9 @@
         </div>
      <!-- 删除新闻用的两个控件，在单击repeater里面的删除按钮，调用confirm()的js函数，将参数bookId传到txtBookId中，然后再触发按钮btnDelete-->
     <div>
-        <asp:Button ID="btnDelete" runat="server" Text="删除" hidden="hidden" 
-            onclick="btnDelete_Click"/>
-        <asp:TextBox ID="txtNewsId" runat="server" style="display:none" ></asp:TextBox>
+        <asp:Button ID="deleteBtn" runat="server" Text="删除" hidden="hidden" 
+            onclick="deleteBtn_Click"/>
+        <asp:TextBox ID="newsIdTxt" runat="server" style="display:none" ></asp:TextBox>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="under_Form" runat="server">
@@ -125,8 +121,8 @@
             { msg: "确定删除该新闻？" }).on(
             function (e) {
                 if (e) {
-                    document.getElementById("<%=txtNewsId.ClientID %>").value = str;
-                    document.getElementById("<%=btnDelete.ClientID %>").click();
+                    document.getElementById("<%=newsIdTxt.ClientID %>").value = str;
+                    document.getElementById("<%=deleteBtn.ClientID %>").click();
                 }
             }
             );

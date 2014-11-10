@@ -7,20 +7,26 @@
     <table width="100%">
     <tr >
     <td align="center" colspan="3" style="width:100%;valign:top;">
-    <asp:Label ID="newsTitleLbl" runat="server"  align="center"></asp:Label>
+    <h1>
+        <asp:Label ID="newsTitleLbl" runat="server"  align="center"></asp:Label>
+    </h1>
     </td>
     </tr>
     <tr>
     <td align="right" colspan="2" style="width:100%;valign:top;">
-    <asp:Label ID="userNameLbl" runat="server" align="right"></asp:Label>
-    <asp:Label ID="newsRepTimeLbl" runat="server"></asp:Label>
+    <h3>
+        <asp:Label ID="userNameLbl" runat="server" align="right"></asp:Label>
+        <asp:Label ID="newsRepTimeLbl" runat="server"></asp:Label>
+    </h3>
     </td>
     </tr>
     <tr>
     <td style="width:20%">
     </td>
     <td style="width:60%;valign:top;">
-        &nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="newsBodyLbl" runat="server"></asp:Label></br>
+        <p>
+        <asp:Label ID="newsBodyLbl" runat="server"></asp:Label></br>
+        </p>
     </td>
     <td style="width:20%">
         <div class="span2">
