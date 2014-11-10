@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using BookQuerySystem;
+using System.IO;
+using System.Web.UI.HtmlControls;
 
 namespace BookQuerySystem
 {
@@ -56,19 +58,6 @@ namespace BookQuerySystem
                 url = "newsAdd.aspx?newsId=" + e.CommandArgument;
                 Response.Redirect(url);
             }
-            else if (e.CommandName == "delete")
-            {
-                bool b = newsDao.newsDelete((string)e.CommandArgument);
-                if (b)
-                {
-                    Session["flag"] = "delSuccess";
-                    Response.Redirect("newsList.aspx");
-                }
-                else {
-                    Session["flag"] = "delFailure";
-                    Response.Redirect("newsList.aspx");
-                }
-            }
             else if (e.CommandName == "details")
             {
                 string url= "newsDetails.aspx?newsId=" + e.CommandArgument;
@@ -77,6 +66,11 @@ namespace BookQuerySystem
         }
 
         protected void btnNewsAdd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("newsAdd.aspx");
+        }
+
+        protected void newsAddBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("newsAdd.aspx");
         }
@@ -91,6 +85,23 @@ namespace BookQuerySystem
             BindGrid();
         }
 
+        protected void deleteBtn_Click(object sender, EventArgs e)
+        {
+            //根据id获取书籍信息
+            News news = newsDao.findById(newsIdTxt.Text.ToString());
+            bool b = newsDao.newsDelete(newsIdTxt.Text);
+            if (b)
+            {
+                Session["flag"] = "delSuccess";
+                Response.Redirect("newsList.aspx");
+            }
+            else
+            {
+                Session["flag"] = "delFailure";
+                Response.Redirect("newsList.aspx");
+            }
+        }
+
         //绑定数据源
         public void BindGrid()
         {
@@ -98,8 +109,7 @@ namespace BookQuerySystem
             int pageIndex = this.AspNetPagerNewsList.CurrentPageIndex - 1;
             int pageSize = this.AspNetPagerNewsList.PageSize = 5;
             listNews.DataSource = newsDao.getNews(pageIndex, pageSize);
-            listNews.DataBind();
-           
+            listNews.DataBind();   
         }
     }
 }

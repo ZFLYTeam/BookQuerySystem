@@ -136,6 +136,7 @@
 			</div>
 		</div>
         <!-----------------------------------showSlidesEND -------------------------------------->
+        
         <!-----------------------------------NewsListBegin -------------------------------------->
 		<div class="span2">
             <asp:Repeater ID="rptNews" runat="server" DataSourceID="SqlNewList">
