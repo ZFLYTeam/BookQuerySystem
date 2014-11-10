@@ -42,7 +42,8 @@
                                 <ul class="nav">
                                      <li class="divider-vertical"></li>
                                     <asp:TextBox ID="txtSearch" style="margin-top:5px;width:350px;" placeholder="搜索书名或作者..." class="input-medium search-query" runat="server"></asp:TextBox>
-                                    <asp:Button ID="btnSearch" class="btn btn-success" runat="server" Text="搜索" />
+                                    <asp:Button ID="btnSearch" class="btn btn-success" runat="server" Text="搜索" 
+                                             onclick="btnSearch_Click" />
                                 </ul>
                                 <ul class="nav pull-right">
                                  <li class="divider-vertical"></li>
@@ -66,23 +67,22 @@
 				</li>
                 </HeaderTemplate>
                 <ItemTemplate>
-                  <li class="divider">
-				</li>
-				<li>
-					<a><%#Eval("bookTypeName")%></a>
-				</li>
+                <div class="alert alert-info">
+                <input id="checkbox" runat="server" type="checkbox" value="" />
+                 <%#Eval("bookTypeName")%>
+                <input type="hidden" id="HiddenID" runat="server" value='<%# DataBinder.Eval(Container.DataItem, "bookTypeName")%>' />
+                </div>
                 </ItemTemplate>
                 <FooterTemplate>
-                    <li class="divider"></li>
-                    <li><a href="#"></a></li>
                     </ul>
                 </FooterTemplate>
             </asp:Repeater>
 			<asp:SqlDataSource ID="SqlBookType" runat="server" 
                 ConnectionString="Data Source=localhost;Initial Catalog=db_BQS;Integrated Security=True" 
                 ProviderName="System.Data.SqlClient" 
-                SelectCommand="SELECT [bookTypeId], [bookTypeName] FROM [t_bookType]">
+                SelectCommand="SELECT [bookTypeId], [bookTypeName] FROM [t_bookType] WHERE bookTypeId >1">
             </asp:SqlDataSource>
+            <asp:TextBox ID="txtBookTypeId" style="display:none;width:10px;" runat="server"></asp:TextBox>
 		</div>
         <div class="span10">
         <div class="row">
@@ -140,7 +140,7 @@
 		<div class="span2">
             <asp:Repeater ID="rptNews" runat="server" DataSourceID="SqlNewList">
             <HeaderTemplate>
-            书城资讯
+            新闻中心
             <ul>
             </HeaderTemplate>
             <ItemTemplate>
@@ -213,14 +213,5 @@
     <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="libs/bootstrap-select/js/bootstrap-select.js"></script>
     <script type="text/javascript" src="libs/modal/modal.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
-            $('.selectpicker').selectpicker();
-        });
-        function logOut() {
-            window.location.href = "login.aspx";
-        }
-    </script>
 </body>
 </html>

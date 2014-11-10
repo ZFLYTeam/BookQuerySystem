@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 namespace BookQuerySystem
 {
     /// <summary>
@@ -25,9 +24,30 @@ namespace BookQuerySystem
             {
                 Session.RemoveAll();
             }
+            //第一次加载时执行
             if (!IsPostBack)
             {
                 BindGrid();
+            }
+
+            //每次加载页面都执行
+            ///判断搜索框里面的内容
+            if (txtSearch.Text != "") {
+                sql += "and  (bookName LIKE '%"+txtSearch.Text+"%' OR bookAuthor LIKE '%"+txtSearch.Text+"%')";
+                sqlCount += "and  bookName LIKE '%" + txtSearch.Text + "%' OR bookAuthor LIKE '%" + txtSearch.Text + "%'";
+            }
+            ///判断书籍类别
+            string str = "(";
+            for (int i = 0; i < rptBookTypeList.Items.Count; i++) {
+                if (((System.Web.UI.HtmlControls.HtmlInputCheckBox)rptBookTypeList.Items[i].FindControl("checkbox")).Checked) {
+                    str += " bookTypeName = '"+(((System.Web.UI.HtmlControls.HtmlInputHidden)rptBookTypeList.Items[i].FindControl("HiddenID")).Value + "' OR");
+                }
+            }
+            if (str != "(") {
+                str = str.Remove(str.LastIndexOf("OR"), 2);
+                str += ")";
+                sql += " AND " + str;
+                sqlCount += " AND " + str;
             }
         }
 
@@ -41,14 +61,22 @@ namespace BookQuerySystem
             listBook.DataBind();
         }
 
+        //分页事件
         protected void AspNetPagerBookList_PageChanged(object sender, EventArgs e)
         {
             BindGrid();
         }
 
+        //repeater的iteam事件
         protected void listBook_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
 
+        }
+
+        //点击搜索按钮执行，重新绑定数据源
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            BindGrid();
         }
     }
 }

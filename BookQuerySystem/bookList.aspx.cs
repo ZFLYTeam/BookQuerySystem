@@ -62,7 +62,7 @@ namespace BookQuerySystem
             
             try
             {
-                if (ddlBookType.SelectedItem.Text.ToString() != "未指定") 
+                if (ddlBookType.SelectedItem.Text.ToString() != "请选择") 
                 {
                 sql += " and bookTypeName like '%" + ddlBookType.SelectedItem.Text + "%'";
                 sqlCount += " and bookTypeName like '%" + ddlBookType.SelectedItem.Text + "%'";
@@ -73,7 +73,7 @@ namespace BookQuerySystem
             //判断是否选择了出版社
             try
             {
-                if (ddlPublish.SelectedItem.Text.ToString()!="未指定")
+                if (ddlPublish.SelectedItem.Text.ToString()!="请选择")
                 {
                     sql += " and bookPublish like '%" + ddlPublish.SelectedItem.Text + "%'";
                     sqlCount += " and bookPublish like '%" + ddlPublish.SelectedItem.Text + "%'";
