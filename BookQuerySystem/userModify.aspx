@@ -31,7 +31,7 @@
 					<div class="controls ">
 						<asp:TextBox ID="txtOldPassword" class="span12" placeholder="请输入原始秘密码" 
                             runat="server" TextMode="Password"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rvdPassword" runat="server" ErrorMessage="密码不能为空" ControlToValidate="txtOldPassword"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rvdPassword" runat="server" ErrorMessage="密码不能为空" ControlToValidate="txtOldPassword" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                     </div>
 				</div>
                 <div class="control-group">
@@ -40,7 +40,7 @@
                     <div class="controls ">
                         <asp:TextBox ID="txtNewPassword" class="span12" placeholder="请输入新密码" 
                             runat="server" TextMode="Password"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rvdNewPassword" runat="server" ErrorMessage="密码不能为空" ControlToValidate="txtNewPassword"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rvdNewPassword" runat="server" ErrorMessage="密码不能为空" ControlToValidate="txtNewPassword" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="control-group">
@@ -49,8 +49,8 @@
                     <div class="controls ">
                         <asp:TextBox ID="txtNewPassword1" class="span12" placeholder="请重新输入新密码" 
                             runat="server" TextMode="Password"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rvdNewPassword1" runat="server" ErrorMessage="密码不能为空" ControlToValidate="txtNewPassword1"></asp:RequiredFieldValidator>
-                        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="密码不一致" ControlToCompare="txtNewPassword" ControlToValidate="txtNewPassword1"></asp:CompareValidator>
+                        <asp:RequiredFieldValidator ID="rvdNewPassword1" runat="server" ErrorMessage="密码不能为空" ControlToValidate="txtNewPassword1" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="密码不一致" ControlToCompare="txtNewPassword" ControlToValidate="txtNewPassword1" ForeColor="#CC0000"></asp:CompareValidator>
                     </div>
                 </div>
                 <div class="control-group">

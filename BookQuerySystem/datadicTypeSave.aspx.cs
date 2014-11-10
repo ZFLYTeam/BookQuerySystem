@@ -49,7 +49,11 @@ namespace BookQuerySystem
                 datadicType.DdTypeName = tb_ddTypeName.Text;
                 datadicType.DdTypeDesc = tb_ddTypeDesc.Text;
                 b = datadicTypeDao.datadicTypeUpdate(datadicType);
-                Response.Redirect("datadicTypeList.aspx");
+                if (b)
+                {
+                    Session["flag"] = "modifySuccess";
+                    Response.Redirect("datadicTypeList.aspx");
+                }
             }
             else
             {
@@ -57,7 +61,11 @@ namespace BookQuerySystem
                 datadicType.DdTypeName = tb_ddTypeName.Text;
                 datadicType.DdTypeDesc = tb_ddTypeDesc.Text;
                 b = datadicTypeDao.datadicTypeAdd(datadicType);
-                Response.Redirect("datadicTypeList.aspx");
+                if (b)
+                {
+                    Session["flag"] = "addSuccess";
+                    Response.Redirect("datadicTypeList.aspx");
+                }
             }
         }
     }

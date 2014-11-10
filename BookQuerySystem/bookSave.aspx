@@ -62,15 +62,7 @@
                     出版社：
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlPublish" runat="server" class="selectpicker" data-style="btn-primary"
-                        DataSourceID="SqlDataSourceforView_publish" DataTextField="ddValue" 
-                        DataValueField="ddValue">
-                    </asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSourceforView_publish" runat="server" 
-                        ConnectionString="Data Source=localhost;Initial Catalog=db_BQS;Integrated Security=True" 
-                        ProviderName="System.Data.SqlClient" 
-                        SelectCommand="SELECT [ddValue], [ddId] FROM [view_publish]">
-                    </asp:SqlDataSource>
+                <asp:TextBox ID="txtPublish" runat="server"></asp:TextBox>
                 </td>
                 <td align="right">
                     封面：

@@ -20,6 +20,28 @@ namespace BookQuerySystem
         DatadicTypeDao datadicTypeDao = new DatadicTypeDao();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //根据参数flag判断状态是什么，显示相应的alert
+            if (Session["flag"] == null) { }
+            else if (Session["flag"].ToString() == "addSuccess")
+            {
+                AlertAddSuccess.Visible = true;
+                Session.Remove("flag");
+            }
+            else if (Session["flag"].ToString() == "modifySuccess")
+            {
+                AlertModifySuccess.Visible = true;
+                Session.Remove("flag");
+            }
+            else if (Session["flag"].ToString() == "delSuccess")
+            {
+                AlertDeleteSuccess.Visible = true;
+                Session.Remove("flag");
+            }
+            else if (Session["flag"].ToString() == "delFailure")
+            {
+                AlertDeleteFalure.Visible = true;
+                Session.Remove("flag");
+            }
             //获取数据库中的t_datadicType,绑定数据源之后显示出来
             //DataSet ds = datadicTypeDao.getDatadicType();
             //listDatadicType.DataSource = ds.Tables["t_datadicType"];
@@ -60,6 +82,11 @@ namespace BookQuerySystem
 
         protected void AspNetPagerDatadicTypeList_PageChanged(object sender, EventArgs e)
         {
+            //各种提示不可视
+            AlertAddSuccess.Visible = false;
+            AlertModifySuccess.Visible = false;
+            AlertDeleteSuccess.Visible = false;
+            AlertDeleteFalure.Visible = false;
             BindGrid();
         }
 
@@ -71,6 +98,22 @@ namespace BookQuerySystem
             int pageSize = this.AspNetPagerDatadicTypeList.PageSize = 5;
             listDatadicType.DataSource = datadicTypeDao.getDatadicType(pageIndex, pageSize);
             listDatadicType.DataBind();
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            DatadicType datadicType = datadicTypeDao.findById(Convert.ToInt32(txtddTyId.Text));
+            bool b = datadicTypeDao.datadicTypeDelete(datadicType);
+            if (b)
+            {
+                Session["flag"] = "delSuccess";
+                Response.Redirect("datadicTypeList.aspx");
+            }
+            else
+            {
+                Session["flag"] = "delFailure";
+                Response.Redirect("datadicTypeList.aspx");
+            };
         }
     }
 }

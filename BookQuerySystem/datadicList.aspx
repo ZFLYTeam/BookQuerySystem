@@ -1,10 +1,36 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BQS.Master" AutoEventWireup="true" CodeBehind="datadicList.aspx.cs" Inherits="BookQuerySystem.datadicList" %>
 <%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
+<%@ Register Assembly="Twitter.Web.Controls" Namespace="Twitter.Web.Controls" TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainPage" runat="server">
+   <cc1:Alert ID="AlertAddSuccess" runat="server" AlertType="Success" Visible="False">
+        <h4>
+            提示!
+        </h4>
+        s数据添加成功！！！
+    </cc1:Alert>
+    <cc1:Alert ID="AlertModifySuccess" runat="server" Visible="False" AlertType="Success">
+        <h4>
+            提示!
+        </h4>
+        数据修改成功！！！
+    </cc1:Alert>
+    <cc1:Alert ID="AlertDeleteSuccess" runat="server" Visible="False" AlertType="Success">
+        <h4>
+            提示!
+        </h4>
+        数据删除成功！！！
+    </cc1:Alert>
+    <cc1:Alert ID="AlertDeleteFalure" runat="server" Visible="False" AlertType="Error">
+        <h4>
+            提示!
+        </h4>
+        数据删除失败！！！
+    </cc1:Alert>
  <div align="right" style="padding-top:25px">
-     <asp:Button ID="datadicAdd" runat="server" Text="添加" onclick="datadicAdd_Click" />
+     <asp:Button ID="datadicAdd" class="btn btn-info" runat="server" Text="添加" onclick="datadicAdd_Click" />
  </div>
 
   <div style="padding-top:25px">
@@ -40,25 +66,7 @@
                             <%#Eval("ddDesc")%>
                         </td>
                         <td>
-                        <div id="alert" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                    ×</button>
-                                <h3 id="myModalLabel">
-                                    提示
-                                </h3>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    你确定要删除该条信息？</p>
-                            </div>
-                            <div class="modal-footer">    
-                            <asp:Button ID="datadicDelete" class="btn btn-success" CommandArgument='<%#Eval("ddId")%>' CommandName="delete" runat="server" Text="确定" />
-                                <button class="btn" data-dismiss="modal" aria-hidden="true">
-                                    取消</button>
-                            </div>
-                        </div>
+                            <input id="newsDeleteBtn" type="button" class="btn btn-mini  btn-danger" onclick='<%#Eval("ddId", "confirm(\"{0}\")")%>'  value="删除" />
                             <asp:Button ID="datadicModify" class="btn btn-mini btn-info" CommandArgument='<%#Eval("ddId")%>' CommandName="modify" runat="server" Text="修改" />
                         </td>
                     </tr>
@@ -68,6 +76,11 @@
                     </div>
                 </FooterTemplate>
   </asp:Repeater>
+  <div>
+        <asp:Button ID="deleteBtn" runat="server" Text="删除" hidden="hidden" 
+            onclick="deleteBtn_Click"/>
+        <asp:TextBox ID="ddIdTxt" runat="server" style="display:none" ></asp:TextBox>
+    </div>
   </div>
   
          <div align="center">
@@ -78,4 +91,17 @@
                 UrlPaging="False" ReverseUrlPageIndex="True" ValidateRequestMode="Inherit" ShowMoreButtons="False">
             </webdiyer:AspNetPager>
         </div>
+            <script type="text/javascript">
+                function confirm(str) {
+                    Modal.confirm(
+            { msg: "确定删除该数据？" }).on(
+            function (e) {
+                if (e) {
+                    document.getElementById("<%=ddIdTxt.ClientID %>").value = str;
+                    document.getElementById("<%=deleteBtn.ClientID %>").click();
+                }
+            }
+            );
+                }
+    </script>
 </asp:Content>

@@ -48,11 +48,14 @@
     <div class="form-signin">
         <h2 class="form-signin-heading" align="center">
             管理员注册</h2>
-        <asp:TextBox ID="txtUserName" class="input-block-level" placeholder="请输入用户名" required runat="server"></asp:TextBox>
-        <asp:TextBox ID="txtPassword" class="input-block-level" placeholder="请输入密码" required runat="server" TextMode="Password"></asp:TextBox>
-        <asp:TextBox ID="txtPasswordAgain" class="input-block-level" placeholder="请重输密码"  data-validation-match-match="txtPassword" data-validation-match-message="密码不一致" aria-invalid="true" required runat="server" TextMode="Password"></asp:TextBox>
+        <asp:TextBox ID="txtUserName" class="input-block-level" placeholder="请输入用户名"  runat="server" CausesValidation="True"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="rfvTxtUserName" runat="server" ErrorMessage="用户名不能为空" ControlToValidate="txtUserName"></asp:RequiredFieldValidator>
+        <asp:TextBox ID="txtPassword" class="input-block-level" placeholder="请输入密码"  runat="server" TextMode="Password" CausesValidation="True"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="rfvTxtPassword" runat="server" ErrorMessage="密码不能为空" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
+        <asp:TextBox ID="txtPasswordAgain" class="input-block-level" placeholder="请再次输入密码"   runat="server" TextMode="Password" CausesValidation="True"></asp:TextBox>
+        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="两次密码不一致，请重新输入" ControlToCompare="txtPassword" ControlToValidate="txtPasswordAgain"></asp:CompareValidator>
         <asp:Button ID="btnSignUp" class="btn btn-large btn-primary" style="width:140px" 
-            runat="server" Text="注册" onclick="btnSignUp_Click" />
+            runat="server" Text="注册" onclick="btnSignUp_Click" CausesValidation="True" />
         <input id="btnReturn" class="btn btn-large btn-primary" style="width:140px;margin-left:15px" onclick="javasclript:window.location.href='login.aspx'" type="button" value="返回" />   
         <asp:Label ID="lblError" runat="server" Text=""></asp:Label>         
     </div>

@@ -164,6 +164,7 @@ namespace BookQuerySystem
             txtAuthor.Text = "";
             txtBookName.Text = "";
             ddlBookType.ClearSelection();
+            ddlPublish.ClearSelection();
         }
 
         //删除图片

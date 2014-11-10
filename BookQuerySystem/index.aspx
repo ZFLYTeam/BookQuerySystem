@@ -11,6 +11,13 @@
     <link href="libs/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="shortcut icon" href="images/favicon.png" />
     <style type="text/css">
+        .m-directory
+        {
+            width: 180px;
+            height: 566px;
+            background: #f4f2ef;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -61,9 +68,12 @@
 		<div class="span2">
             <asp:Repeater ID="rptBookTypeList" runat="server" DataSourceID="SqlBookType">
                 <HeaderTemplate>
+                <div class="m-directory">
 			    <ul class="nav nav-list">
 				<li class="nav-header">
-					图书分类
+                    <br />
+					<font style="font-size:23px;">图书分类</font>
+                    <br />
 				</li>
                 </HeaderTemplate>
                 <ItemTemplate>
@@ -75,6 +85,7 @@
                 </ItemTemplate>
                 <FooterTemplate>
                     </ul>
+                    </div>
                 </FooterTemplate>
             </asp:Repeater>
 			<asp:SqlDataSource ID="SqlBookType" runat="server" 
@@ -128,7 +139,7 @@
 								学习
 							</h4>
 							<p>
-								通过阅读、听讲、研究、观察、实践等获得知识或技能的过程，是一种使个体可以得到持续变化（知识和技能，方法与过程，情感与价值的改善和升华）的行为方式。
+								通过阅读、听讲、研究、观察、实践等获得知识或技能的过程，是一种使个体可以得到持mar续变化（知识和技能，方法与过程，情感与价值的改善和升华）的行为方式。
 							</p>
 						</div>
 					</div>
@@ -141,6 +152,7 @@
 		<div class="span2">
             <asp:Repeater ID="rptNews" runat="server" DataSourceID="SqlNewList">
             <HeaderTemplate>
+            <div class="alert alert-block">
             新闻中心
             <ul>
             </HeaderTemplate>
@@ -149,6 +161,7 @@
             </ItemTemplate>
             <FooterTemplate>
             </ul>
+            </div>
             </FooterTemplate>
             </asp:Repeater>
 			<asp:SqlDataSource ID="SqlNewList" runat="server" 

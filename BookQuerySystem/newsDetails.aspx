@@ -32,7 +32,7 @@
         <div class="span2">
             <asp:Repeater ID="rptNews" runat="server" DataSourceID="SqlNewList">
             <HeaderTemplate>
-            书城资讯
+            最近要闻
             <ul>
             </HeaderTemplate>
             <ItemTemplate>

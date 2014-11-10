@@ -13,6 +13,42 @@ namespace BookQuerySystem {
     public partial class datadicList {
         
         /// <summary>
+        /// AlertAddSuccess 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Twitter.Web.Controls.Alert AlertAddSuccess;
+        
+        /// <summary>
+        /// AlertModifySuccess 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Twitter.Web.Controls.Alert AlertModifySuccess;
+        
+        /// <summary>
+        /// AlertDeleteSuccess 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Twitter.Web.Controls.Alert AlertDeleteSuccess;
+        
+        /// <summary>
+        /// AlertDeleteFalure 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Twitter.Web.Controls.Alert AlertDeleteFalure;
+        
+        /// <summary>
         /// datadicAdd 控件。
         /// </summary>
         /// <remarks>
@@ -29,6 +65,24 @@ namespace BookQuerySystem {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater listDatadic;
+        
+        /// <summary>
+        /// deleteBtn 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button deleteBtn;
+        
+        /// <summary>
+        /// ddIdTxt 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ddIdTxt;
         
         /// <summary>
         /// AspNetPagerDatadicList 控件。

@@ -51,7 +51,7 @@ namespace BookQuerySystem
                     ddlBookTypeSelect.SelectedValue = book.BookTypeId.ToString();
                     tb_bookAuthor.Text = book.BookAuthor;
                     tb_bookPrice.Text = book.BookPrice;
-                    ddlPublish.SelectedValue = book.BookPublish.ToString();
+                    txtPublish.Text = book.BookPublish.ToString();
                     tb_bookDesc.Text = book.BookDesc;
                     tb_bookCover.Text = book.BookCover;
                 }
@@ -72,7 +72,7 @@ namespace BookQuerySystem
                 book.BookName= tb_bookName.Text;
                 book.BookAuthor = tb_bookAuthor.Text;
                 book.BookPrice = tb_bookPrice.Text;
-                book.BookPublish = ddlPublish.SelectedItem.Text;
+                book.BookPublish = txtPublish.Text;
                 book.BookDesc = tb_bookDesc.Text;
                 //判断修改的时候是否修改图片
                 if (upLoadImage() != "")
@@ -104,7 +104,7 @@ namespace BookQuerySystem
                 book.BookName = tb_bookName.Text;
                 book.BookAuthor = tb_bookAuthor.Text;
                 book.BookPrice = tb_bookPrice.Text;
-                book.BookPublish = ddlPublish.SelectedItem.Text;
+                book.BookPublish = txtPublish.Text;
                 book.BookDesc = tb_bookDesc.Text;
                 //如果存在的话，提示书籍已存在
                 if (bookDao.existBook(book))
