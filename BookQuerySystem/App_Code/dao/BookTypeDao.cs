@@ -130,7 +130,7 @@ namespace BookQuerySystem
             //设置导入的起始地址
             int firstPage = pageIndex * pageSize;
             sqlCon = dbUtil.getCon();
-            string cmdText = "select * from t_bookType";
+            string cmdText = "select * from t_bookType where bookTypeId>1";
             SqlDataAdapter da = new SqlDataAdapter(cmdText, sqlCon);//创建数据适配器实例对象
             DataSet ds = new DataSet();//创建数据集示例对象
             da.Fill(ds, firstPage, pageSize, "t_bookType");//填充
@@ -141,7 +141,7 @@ namespace BookQuerySystem
         public int GetAllCount()
         {
             sqlCon = dbUtil.getCon();
-            string cmdText = "select count(*) as COUNT from t_bookType";
+            string cmdText = "select count(*) as COUNT from t_bookType where bookTypeId>1";
             SqlCommand sqlCmd = new SqlCommand(cmdText, sqlCon);//查询对象
             SqlDataReader sqlDr = sqlCmd.ExecuteReader();//创建逐行数据读取器对象
             if (sqlDr.Read())

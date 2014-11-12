@@ -14,7 +14,14 @@
         .m-directory
         {
             width: 180px;
-            height: 566px;
+            height: 626px;
+            background: #f4f2ef;
+            overflow: hidden;
+        }
+        .m-news
+        {
+            width: 170px;
+            height: 260px;
             background: #f4f2ef;
             overflow: hidden;
         }
@@ -49,8 +56,7 @@
                                 <ul class="nav">
                                      <li class="divider-vertical"></li>
                                     <asp:TextBox ID="txtSearch" style="margin-top:5px;width:350px;" placeholder="搜索书名或作者..." class="input-medium search-query" runat="server"></asp:TextBox>
-                                    <asp:Button ID="btnSearch" class="btn btn-success" runat="server" Text="搜索" 
-                                             onclick="btnSearch_Click" />
+                                    <asp:Button ID="btnSearch" class="btn btn-success" runat="server" Text="搜索" onclick="btnSearch_Click" />
                                 </ul>
                                 <ul class="nav pull-right">
                                  <li class="divider-vertical"></li>
@@ -72,7 +78,7 @@
 			    <ul class="nav nav-list">
 				<li class="nav-header">
                     <br />
-					<font style="font-size:23px;">图书分类</font>
+					<h3><li class="fa fa-book"></li>&nbsp;图书分类</h3>
                     <br />
 				</li>
                 </HeaderTemplate>
@@ -149,11 +155,11 @@
         <!-----------------------------------showSlidesEND -------------------------------------->
         
         <!-----------------------------------NewsListBegin -------------------------------------->
-		<div class="span2">
+		<div class="span2 m-news">
             <asp:Repeater ID="rptNews" runat="server" DataSourceID="SqlNewList">
             <HeaderTemplate>
-            <div class="alert alert-block">
-            新闻中心
+            <div>
+            <div style="margin:3px;margin-left:6px;"><h3><li class="fa fa-newspaper-o"></li>&nbsp;新闻中心</h3></div>
             <ul>
             </HeaderTemplate>
             <ItemTemplate>

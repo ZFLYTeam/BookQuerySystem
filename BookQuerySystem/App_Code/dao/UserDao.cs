@@ -38,6 +38,47 @@ namespace BookQuerySystem
             return resultUser;
         }
 
+
+        //用户是否存在
+        public bool Exist(string userName)
+        {
+            sqlCon = dbUtil.getCon();
+            string cmdText = "select * from t_user where userName='" + userName+"'";//查询用户字符串
+            SqlCommand sqlCmd = new SqlCommand(cmdText, sqlCon);//查询对象
+            SqlDataReader sqlDr = sqlCmd.ExecuteReader();//创建逐行数据读取器对象
+            if (sqlDr.Read())
+            {
+                sqlDr.Close();
+                dbUtil.close(sqlCon);
+                return true;
+            }
+            else {
+                sqlDr.Close();
+                dbUtil.close(sqlCon);
+                return false;
+            }
+        }
+
+        //根据id查找
+        public User findById(string str)
+        {
+            sqlCon = dbUtil.getCon();
+            User resultUser = null;
+            string cmdText = "select * from t_user where userId ="+ str;//查询用户字符串
+            SqlCommand sqlCmd = new SqlCommand(cmdText, sqlCon);//查询对象
+            SqlDataReader sqlDr = sqlCmd.ExecuteReader();//创建逐行数据读取器对象
+            if (sqlDr.Read())
+            {
+                resultUser = new User();
+                resultUser.UserName = (string)sqlDr["userName"];
+                resultUser.Password = (string)sqlDr["password"];
+                resultUser.UserId = (int)sqlDr["userId"];
+            }
+            sqlDr.Close();
+            dbUtil.close(sqlCon);
+            return resultUser;
+        }
+
         //插入一个传进来的不含userId属性的user对象，插入成功返回true，否则返回false
         public bool userAdd(User user)
         {

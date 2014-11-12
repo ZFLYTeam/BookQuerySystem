@@ -58,7 +58,6 @@ namespace BookQuerySystem
 
         protected void bt_newsAdd_Click(object sender, EventArgs e)
         {
-            bool b;
             if (Context.Request["newsId"] != null)
             {
                 news.NewsId = Convert.ToInt32(Context.Request["newsId"]);

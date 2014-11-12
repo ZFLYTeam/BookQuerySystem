@@ -18,16 +18,29 @@ namespace BookQuerySystem
 
         protected void btnSignUp_Click(object sender, EventArgs e)
         {
-            User user = new User();
-            user.UserName = txtUserName.Text;
-            user.Password = txtPassword.Text;
-            bool b=userDao.userAdd(user);
-            if (b)
+            if (txtPassword.Text == txtPasswordAgain.Text)
             {
-                Response.Redirect("login.aspx");
+                User user = new User();
+                user.UserName = txtUserName.Text;
+                user.Password = txtPassword.Text;
+                if (userDao.Exist(txtUserName.Text))
+                {
+                    lblError.Text = "用户名已存在，请重新输入";
+                }
+                else {
+                    bool b = userDao.userAdd(user);
+                    if (b)
+                    {
+                        Response.Redirect("login.aspx");
+                    }
+                    else
+                    {
+                        lblError.Text = "注册失败！";
+                    }
+                }
             }
             else {
-                lblError.Text = "注册失败！";
+                lblError.Text = "两次密码不一致，请重新输入！";
             }
         }
     }

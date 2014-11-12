@@ -74,6 +74,7 @@
     <Content Include="libs\css\autocut.css" />
     <Content Include="libs\modal\modal.js" />
     <Content Include="newsAdd.aspx" />
+    <Content Include="newsDetail.aspx" />
     <Content Include="newsDetails.aspx" />
     <Content Include="newsList.aspx" />
     <Content Include="bin\AspNetPager.dll" />
@@ -208,6 +209,13 @@
     </Compile>
     <Compile Include="newsAdd.aspx.designer.cs">
       <DependentUpon>newsAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newsDetail.aspx.cs">
+      <DependentUpon>newsDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newsDetail.aspx.designer.cs">
+      <DependentUpon>newsDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="newsDetails.aspx.cs">
       <DependentUpon>newsDetails.aspx</DependentUpon>
@@ -362,7 +370,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>53362</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

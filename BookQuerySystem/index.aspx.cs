@@ -27,44 +27,14 @@ namespace BookQuerySystem
             //第一次加载时执行
             if (!IsPostBack)
             {
+                if (Context.Request["str"] != null) {
+                    string str = Context.Request["str"];
+                    sql += "and  (bookName LIKE '%" + str + "%' OR bookAuthor LIKE '%" + str + "%')";
+                    sqlCount += "and  bookName LIKE '%" + str + "%' OR bookAuthor LIKE '%" + str + "%'";
+                }
                 BindGrid();
             }
-
             //每次加载页面都执行
-            ///判断搜索框里面的内容
-            if (txtSearch.Text != "") {
-                sql += "and  (bookName LIKE '%"+txtSearch.Text+"%' OR bookAuthor LIKE '%"+txtSearch.Text+"%')";
-                sqlCount += "and  bookName LIKE '%" + txtSearch.Text + "%' OR bookAuthor LIKE '%" + txtSearch.Text + "%'";
-            }
-            ///判断书籍类别
-            string str = "(";
-            for (int i = 0; i < rptBookTypeList.Items.Count; i++) {
-                if (((System.Web.UI.HtmlControls.HtmlInputCheckBox)rptBookTypeList.Items[i].FindControl("checkbox")).Checked) {
-                    str += " bookTypeName = '"+(((System.Web.UI.HtmlControls.HtmlInputHidden)rptBookTypeList.Items[i].FindControl("HiddenID")).Value + "' OR");
-                }
-            }
-            if (str != "(") {
-                str = str.Remove(str.LastIndexOf("OR"), 2);
-                str += ")";
-                sql += " AND " + str;
-                sqlCount += " AND " + str;
-            }
-        }
-
-        //绑定数据源
-        public void BindGrid()
-        {
-            this.AspNetPagerBookList.RecordCount = bookDao.GetAllCount(sqlCount);
-            int pageIndex = this.AspNetPagerBookList.CurrentPageIndex - 1;
-            int pageSize = this.AspNetPagerBookList.PageSize = 6;
-            listBook.DataSource = bookDao.getBook(sql, pageIndex, pageSize);
-            listBook.DataBind();
-        }
-
-        //分页事件
-        protected void AspNetPagerBookList_PageChanged(object sender, EventArgs e)
-        {
-            BindGrid();
         }
 
         //repeater的iteam事件
@@ -76,7 +46,50 @@ namespace BookQuerySystem
         //点击搜索按钮执行，重新绑定数据源
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            search();
             BindGrid();
+        }
+
+        //分页事件
+        protected void AspNetPagerBookList_PageChanged(object sender, EventArgs e)
+        {
+            search();
+            BindGrid();
+        }
+        //绑定数据源
+        public void BindGrid()
+        {
+            this.AspNetPagerBookList.RecordCount = bookDao.GetAllCount(sqlCount);
+            int pageIndex = this.AspNetPagerBookList.CurrentPageIndex - 1;
+            int pageSize = this.AspNetPagerBookList.PageSize = 12;
+            listBook.DataSource = bookDao.getBook(sql, pageIndex, pageSize);
+            listBook.DataBind();
+        }
+        
+        //搜索函数
+        public void search(){
+            ///判断搜索框里面的内容
+            if (txtSearch.Text != "")
+            {
+                sql += "and  (bookName LIKE '%" + txtSearch.Text + "%' OR bookAuthor LIKE '%" + txtSearch.Text + "%')";
+                sqlCount += "and  (bookName LIKE '%" + txtSearch.Text + "%' OR bookAuthor LIKE '%" + txtSearch.Text + "%')";
+            }
+            ///判断书籍类别
+            string str = "(";
+            for (int i = 0; i < rptBookTypeList.Items.Count; i++)
+            {
+                if (((System.Web.UI.HtmlControls.HtmlInputCheckBox)rptBookTypeList.Items[i].FindControl("checkbox")).Checked)
+                {
+                    str += " bookTypeName = '" + (((System.Web.UI.HtmlControls.HtmlInputHidden)rptBookTypeList.Items[i].FindControl("HiddenID")).Value + "' OR");
+                }
+            }
+            if (str != "(")
+            {
+                str = str.Remove(str.LastIndexOf("OR"), 2);
+                str += ")";
+                sql += " AND " + str;
+                sqlCount += " AND " + str;
+            }
         }
     }
 }

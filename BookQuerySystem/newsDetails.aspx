@@ -14,10 +14,10 @@
     </tr>
     <tr>
     <td align="right" colspan="2" style="width:100%;valign:top;">
-    <h3>
-        <asp:Label ID="userNameLbl" runat="server" align="right"></asp:Label>
-        <asp:Label ID="newsRepTimeLbl" runat="server"></asp:Label>
-    </h3>
+    <h4>
+        作者：<asp:Label ID="userNameLbl" runat="server" align="right"></asp:Label>
+        &nbsp;&nbsp;发布时间：<asp:Label ID="newsRepTimeLbl" runat="server"></asp:Label>
+    </h4>
     </td>
     </tr>
     <tr>
@@ -25,6 +25,7 @@
     </td>
     <td style="width:60%;valign:top;">
         <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="newsBodyLbl" runat="server"></asp:Label></br>
         </p>
     </td>

@@ -63,15 +63,5 @@ namespace BookQuerySystem
         {
 
         }
-
-        //不带newsId的构造函数
-        public News(int uersId, string newsTitle, string newsBody, string newsRepTime, string newsModifyTime)
-        {
-            this.userId = userId;
-            this.newsTitle = newsTitle;
-            this.newsBody = newsBody;
-            this.newsRepTime = newsRepTime;
-            this.newsModifyTime = newsModifyTime;
-        }
     }
 }

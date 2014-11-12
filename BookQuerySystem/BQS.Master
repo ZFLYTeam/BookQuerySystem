@@ -77,7 +77,6 @@
                                             <li><a href="datadicTypeList.aspx">数据字典类别维护</a></li>
                                             <li><a href="userModify.aspx">修改密码</a></li>
                                             <li class="divider"></li>
-                                            <li><a href="#">关于我们</a></li>
                                             <li><a href="#alertExit" data-toggle="modal">退出系统</a></li>
                                         </ul>
                                     </li>
