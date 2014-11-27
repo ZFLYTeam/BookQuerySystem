@@ -1,2 +1,5 @@
 *.csproj
 BookQuerySystem/obj/Debug/
+BookQuerySystem/bin/BookQuerySystem.dll
+BookQuerySystem.suo
+BookQuerySystem/bin/BookQuerySystem.pdb
