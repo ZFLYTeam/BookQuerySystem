@@ -1,7 +1,34 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BQS.Master" AutoEventWireup="true" CodeBehind="newsAdd.aspx.cs" Inherits="BookQuerySystem.newsAdd" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BQS.Master" validateRequest="false" AutoEventWireup="true" CodeBehind="newsAdd.aspx.cs" Inherits="BookQuerySystem.newsAdd" %>
 
 <%@ Register Assembly="Twitter.Web.Controls" Namespace="Twitter.Web.Controls" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="/editor/themes/default/default.css" />
+	<link rel="stylesheet" href="/editor/plugins/code/prettify.css" />
+    <script charset="utf-8" src="/editor/kindeditor.js"></script>
+	<script charset="utf-8" src="/editor/lang/zh_CN.js"></script>
+	<script charset="utf-8" src="/editor/plugins/code/prettify.js"></script>
+    	<script>
+    	    KindEditor.ready(function (K) {
+    	        var editor1 = K.create('#mainPage_tb_newsBody', {
+    	            cssPath: '/editor/plugins/code/prettify.css',
+    	            uploadJson: '/editor/asp.net/upload_json.ashx',
+    	            fileManagerJson: '/editor/asp.net/file_manager_json.ashx',
+    	            allowFileManager: true,
+    	            afterCreate: function () {
+    	                var self = this;
+    	                K.ctrl(document, 13, function () {
+    	                    self.sync();
+    	                    K('form[name=example]')[0].submit();
+    	                });
+    	                K.ctrl(self.edit.doc, 13, function () {
+    	                    self.sync();
+    	                    K('form[name=example]')[0].submit();
+    	                });
+    	            }
+    	        });
+    	        prettyPrint();
+    	    });
+	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainPage" runat="server">
     
@@ -42,8 +69,8 @@
 						<div class="control-group">
 							  <label class="control-label" for="tb_newsBody">正文</label>
 							<div class="controls">
-                            <asp:TextBox ID="tb_newsBody" required class="form" TextMode="MultiLine" 
-                            style="height:100px"  runat="server" Width="500px"></asp:TextBox>
+                            <asp:TextBox ID="tb_newsBody" class="form" TextMode="MultiLine" 
+                            style="width:700px;height:200px;"  runat="server"></asp:TextBox>
 							</div>
 						</div>
                        
